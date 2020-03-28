@@ -3,10 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import { reducer as formReducer } from 'redux-form';
+
+const rootReducer = combineReducers({
+    form: formReducer,
+});
+
+const store = createStore(rootReducer);
+
+const handleRegistration = () => {
+    console.log(store.getState());
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <Provider store={store}>
+          <App handle={handleRegistration}/>
+      </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

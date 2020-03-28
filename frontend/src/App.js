@@ -5,17 +5,20 @@ import Home from './components/Home';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Registration from "./components/Registration";
 
-function App() {
+const App = ({ handle }) => {
   return (
       <BrowserRouter>
         <div>
           <Switch>
             <Route path="/" component={Home} exact/>
-            <Route path="/register" component={Registration}/>
+            <Route
+                path="/register"
+                render={(props) => <Registration {...props} onSubmit={handle} />}
+            />
           </Switch>
         </div>
       </BrowserRouter>
   );
-}
+};
 
 export default App;
