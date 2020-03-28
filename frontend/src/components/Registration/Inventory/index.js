@@ -1,9 +1,16 @@
 import React from 'react';
-//import "./ContactInfo.module.css";
+import styles from "./Inventory.module.css";
+import {FieldArray} from "redux-form";
+import InventoryField from "../InventoryField";
 
-const Inventory = ({  }) => {
+const Inventory = () => {
+
     return (
-        <div>
+        <div className={styles.container}>
+            <h2>Inventory</h2>
+            <FieldArray name="equipment"
+                   component={InventoryField}
+            />
         </div>
     );
 };

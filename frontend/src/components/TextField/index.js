@@ -7,11 +7,11 @@ const errorSpan = (error) => (
     </div>
 );
 
-const TextField = ({ input, label, placeholder, type, meta: { touched, error } }) => (
+const TextField = ({ input, label, placeholder, type, meta: { touched, error }, className }) => (
     <div>
         <label>{label}</label>
         <div>
-            <input className={styles.input} {...input} placeholder={placeholder} type={type}/>
+            <input className={className || styles.input} {...input} placeholder={placeholder} type={type}/>
             <br/>
             {touched && ((error && errorSpan(error)))}
         </div>

@@ -10,7 +10,7 @@ const Registration = ({ handleSubmit }) => {
             <h1 id={styles.title}>Registration Form</h1>
             <form onSubmit={handleSubmit} className="form">
                 <ContactInfo/>
-                <Inventory/>
+                <Inventory />
                 <button className={styles.submit} type="submit">
                     Register
                 </button>

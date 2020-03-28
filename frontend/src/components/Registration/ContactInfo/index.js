@@ -7,9 +7,15 @@ const required = value => value ? undefined : 'Required'
 const email = value =>
     value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
         'Invalid email address' : undefined;
+const password = value =>
+    value && value.length >= 8 ? undefined : "Password must be at least 8 characters long.";
 
+const equalPassword = (value, allValues) =>
+    value !== allValues.password ?
+        'Passwords do not match' :
+        undefined;
 
-const ContactInfo = ({  }) => {
+const ContactInfo = () => {
     return (
         <div className={styles.container}>
             <h2 id={styles.title}>Contact Info</h2>
@@ -22,7 +28,7 @@ const ContactInfo = ({  }) => {
             <Field name="hospitalAddress"
                    label="Hospital Address"
                    component={TextField}
-                   placeholder="Address of hospital"
+                   placeholder="Address"
                    validate={required}
             />
             <Field name="contactName"
@@ -42,6 +48,20 @@ const ContactInfo = ({  }) => {
                    component={TextField}
                    placeholder="Phone Number"
                    validate={required}
+            />
+            <Field name="password"
+                   type="password"
+                   label="Password"
+                   component={TextField}
+                   placeholder="Password"
+                   validate={[required, password]}
+            />
+            <Field name="passwordRepeat"
+                   type="password"
+                   label="Repeat Password"
+                   component={TextField}
+                   placeholder="Password"
+                   validate={[required, password, equalPassword]}
             />
         </div>
     );
