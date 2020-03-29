@@ -6,11 +6,13 @@
 .inputContainer {
     display: flex;
     flex-direction: row;
+    height: 40px;
+    margin-bottom: 75px;
 }
 
 .input {
     width: 200px;
-    height: 40px;
+    height: 100%;
     font-size: 18px;
     margin-bottom: 10px;
     margin-right: 10px;
@@ -29,5 +31,5 @@
 
 .deleteButton {
     margin-top: 30px;
-    max-height: 40px;
+    height: 45px;
 }

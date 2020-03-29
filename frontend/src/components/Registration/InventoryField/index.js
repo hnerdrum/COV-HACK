@@ -13,17 +13,14 @@ const errorSpan = (error) => (
     </div>
 );
 
+const required = value => value ? undefined : 'Required';
+
 const categories = ["Gloves", "Face Mask", "Breathing Guard", "Contamination Gown", "Surgical Hat"];
 const parts = ["Type1", "Type2", "Type3", "Type4"];
 const grades = ["A", "B", "C"];
 
-const filterState = (state, i) => {
-  state.filter((elem, index) => {if(index !== i) return elem});
-};
 
 const InventoryField = ({ fields, meta: { touched, error } }) => {
-
-    const {fieldsState, setFields } = useState(fields);
 
     return (
         <div>
@@ -35,42 +32,46 @@ const InventoryField = ({ fields, meta: { touched, error } }) => {
                                options={categories}
                                component={Dropdown}
                                className={styles.input}
+                               validate={required}
                         />
                         <Field name={`${member}.part`}
                                label="Part"
                                options={parts}
                                component={Dropdown}
                                className={styles.input}
+                               validate={required}
                         />
                         <Field name={`${member}.grade`}
                                label="Grade"
                                options={grades}
                                component={Dropdown}
                                className={styles.input}
+                               validate={required}
                         />
                         <Field name={`${member}.inUse`}
                                label="In Use"
                                component={TextField}
                                placeholder="Items in use"
                                className={styles.input}
+                               validate={required}
                         />
                         <Field name={`${member}.reserved`}
                                label="Reserved"
                                component={TextField}
                                placeholder="Reserved items"
                                className={styles.input}
+                               validate={required}
                         />
                         <Field name={`${member}.available`}
                                label="Available"
                                component={TextField}
                                placeholder="Available items"
                                className={styles.input}
+                               validate={required}
                         />
                         <Button variant="danger" className={styles.deleteButton} onClick={() => fields.splice(index, 1)}>Delete</Button>
                     </div>
                 )}
-
-                {touched && ((error && errorSpan(error)))}
             </div>
             <button type="button" className={styles.addButton} onClick={() => fields.push({})}>Add Equipment</button>
         </div>

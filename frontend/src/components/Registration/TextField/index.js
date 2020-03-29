@@ -10,10 +10,10 @@ const errorSpan = (error) => (
 const TextField = ({ input, label, placeholder, type, meta: { touched, error }, className }) => (
     <div>
         <label>{label}</label>
-        <div>
+        {touched && ((error && errorSpan(error)))}
+        <div className={styles.container}>
             <input className={className || styles.input} {...input} placeholder={placeholder} type={type}/>
             <br/>
-            {touched && ((error && errorSpan(error)))}
         </div>
     </div>
 );
