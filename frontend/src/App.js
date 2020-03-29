@@ -7,7 +7,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Registration from "./components/Registration";
 import Profile from "./components/Profile";
 
-const App = ({ handle, auth }) => {
+const App = ({ handle, auth, db }) => {
 
   const loadLoginState = () => {
     return localStorage.getItem('login');
@@ -26,7 +26,7 @@ const App = ({ handle, auth }) => {
           <Navbar auth={auth} login={login} setLogin={setLoginState}/>
           <Switch>
             <Route path="/"
-                   render={(props) => <Home {...props} login={login} setLogin={setLoginState} />}
+                   render={(props) => <Home {...props} login={login} db={db}  setLogin={setLoginState} />}
                    exact
             />
             <Route
