@@ -13,7 +13,8 @@
     "react-redux": "latest",
     "redux": "latest",
     "react-widgets": "latest",
-    "react-bootstrap-dropdown-menu": "latest"
+    "react-bootstrap-dropdown-menu": "latest",
+    "react-geocode": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,6 +44,7 @@
     "redux-form": "^8.3.1",
     "redux-forms": "latest",
     "react-widgets": "latest",
-    "react-bootstrap-dropdown-menu": "latest"
+    "react-bootstrap-dropdown-menu": "latest",
+    "react-geocode": "latest"
   }
 }

@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import Geocode from "react-geocode";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDLQv5bl1Pyr4i5qx6EPDk617mNraEBi1g",
@@ -23,6 +24,10 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+
+Geocode.setApiKey("AIzaSyAy1ECBsY8rGy4YiaRzbjqdHuIiwA6Lj08");
+
+Geocode.setLanguage("en");
 
 const rootReducer = combineReducers({
     form: formReducer,
@@ -47,6 +52,20 @@ const addUserToFireBase = (credentials) => {
     });
 };
 
+const getLocationAndRegisterData = (address, data) => {
+    Geocode.fromAddress(address).then(
+        response => {
+            const { lat, lng } = response.results[0].geometry.location;
+            data.lat = lat;
+            data.lng = lng;
+            addRegistrationToFirebase(data);
+        },
+        error => {
+            console.error(error);
+        }
+    );
+};
+
 const handleRegistration = () => {
     const data = store.getState().form.register.values;
 
@@ -57,7 +76,7 @@ const handleRegistration = () => {
       password
     };
 
-    addRegistrationToFirebase(registrationData);
+    getLocationAndRegisterData(registrationData.hospitalAddress, registrationData);
     addUserToFireBase(authData);
 
 };
