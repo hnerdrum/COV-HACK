@@ -69,7 +69,7 @@ const InventoryField = ({ fields, meta: { touched, error } }) => {
                     </div>
                 )}
             </div>
-            <button type="button" className={styles.addButton} onClick={() => fields.push({})}>Add Equipment</button>
+            <Button variant="success" className={styles.addButton} onClick={() => fields.push({})}>Add Equipment</Button>
         </div>
 )};
 

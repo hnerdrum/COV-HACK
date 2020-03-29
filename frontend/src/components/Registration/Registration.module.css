@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
 }
 
 .submit {
@@ -12,4 +13,11 @@
     background: cornflowerblue;
     color: white;
     font-size: 20px;
+    margin-right: 50px;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
