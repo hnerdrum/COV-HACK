@@ -11,7 +11,9 @@
     "react-scripts": "3.4.1",
     "react-router-dom": "latest",
     "react-redux": "latest",
-    "redux": "latest"
+    "redux": "latest",
+    "react-widgets": "latest",
+    "react-bootstrap-dropdown-menu": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,6 +41,8 @@
     "react-router-dom": "latest",
     "redux": "latest",
     "redux-form": "^8.3.1",
-    "redux-forms": "latest"
+    "redux-forms": "latest",
+    "react-widgets": "latest",
+    "react-bootstrap-dropdown-menu": "latest"
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./ContactInfo.module.css";
 import { Field } from 'redux-form';
-import TextField from "../../TextField";
+import TextField from "../TextField";
 
 const required = value => value ? undefined : 'Required'
 const email = value =>

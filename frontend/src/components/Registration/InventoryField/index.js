@@ -1,13 +1,20 @@
 import React from 'react';
 import styles from "./InventoryField.module.css";
 import {Field} from "redux-form";
-import TextField from "../../TextField";
+import TextField from "../TextField";
+import Dropdown from "../Dropdown";
+import 'react-widgets/dist/css/react-widgets.css'
+
 
 const errorSpan = (error) => (
     <div>
         <span className={styles.error}>{error}</span>
     </div>
 );
+
+const categories = ["Gloves", "Face Mask", "Breathing Guard", "Contamination Gown", "Surgical Hat"];
+const parts = ["Type1", "Type2", "Type3", "Type4"];
+const grades = ["A", "B", "C"];
 
 const InventoryField = ({ fields, meta: { touched, error } }) => (
     <div>
@@ -16,20 +23,21 @@ const InventoryField = ({ fields, meta: { touched, error } }) => (
                 <div className={styles.inputContainer}>
                     <Field name={`${member}.category`}
                            label="Category"
-                           component={TextField}
-                           placeholder="Category"
+                           options={categories}
+                           component={Dropdown}
                            className={styles.input}
                     />
+
                     <Field name={`${member}.part`}
                            label="Part"
-                           component={TextField}
-                           placeholder="Part"
+                           options={parts}
+                           component={Dropdown}
                            className={styles.input}
                     />
                     <Field name={`${member}.grade`}
                            label="Grade"
-                           component={TextField}
-                           placeholder="Grade"
+                           options={grades}
+                           component={Dropdown}
                            className={styles.input}
                     />
                     <Field name={`${member}.inUse`}
