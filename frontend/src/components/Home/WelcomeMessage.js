@@ -4,7 +4,6 @@ const WelcomeMessage = ({ login }) => {
 
   const clickRegister = () => {
     window.location.assign( "/register");
-    //window.location.reload();
   };
 
   return (

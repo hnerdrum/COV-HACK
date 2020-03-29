@@ -28,12 +28,12 @@ const App = ({ handle, auth }) => {
           <Switch>
             <Route path="/"
                    render={(props) => <Home {...props} login={login} setLogin={setLoginState} />}
+                   exact
             />
             <Route
                 path="/register"
                 render={(props) => <Registration {...props} onSubmit={handle} auth={auth} />}
             />
-            <Route path="/profile" component={Profile}/>
           </Switch>
           <Footer />
         </div>
