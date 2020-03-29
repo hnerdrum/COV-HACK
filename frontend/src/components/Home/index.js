@@ -5,7 +5,7 @@ import WelcomeMessage from './WelcomeMessage';
 const Home = ({ login, setLogin }) => {
     return (
         <div className="home-wrapper">
-            <WelcomeMessage login={login} setLogin={setLogin}/>
+            <WelcomeMessage login={login} />
             <MapComponent />
         </div>
     );

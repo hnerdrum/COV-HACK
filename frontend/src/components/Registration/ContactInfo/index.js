@@ -46,7 +46,7 @@ const ContactInfo = ({ auth }) => {
             <Field name="trustName"
                    label="Trust Name"
                    component={TextField}
-                   placeholder="Address"
+                   placeholder="Name of trust"
                    validate={required}
                    type="text"
             />

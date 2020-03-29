@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 import Home from './components/Home';
 import Footer from './components/Common/Footer';
@@ -14,7 +14,6 @@ const App = ({ handle, auth }) => {
   };
 
   const setLoginState = (bool) => {
-    console.log("here");
     localStorage.setItem('login', bool);
     window.location.reload();
   };
@@ -24,7 +23,7 @@ const App = ({ handle, auth }) => {
   return (
       <BrowserRouter>
         <div>
-          <Navbar auth={auth} login={login} loadLogin={loadLoginState} setLogin={setLoginState}/>
+          <Navbar auth={auth} login={login} setLogin={setLoginState}/>
           <Switch>
             <Route path="/"
                    render={(props) => <Home {...props} login={login} setLogin={setLoginState} />}
