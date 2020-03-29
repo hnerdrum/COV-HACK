@@ -49,7 +49,13 @@ const addRegistrationToFirebase = (registration) => {
 
 const addUserToFireBase = (credentials) => {
     const { email, password } = credentials;
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch((error) => {
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((response) => {
+            console.log("here");
+            localStorage.setItem('login', true);
+            window.location.assign("/");
+        })
+        .catch((error) => {
         console.log("User registration failed with error: " + error);
     });
 };
@@ -80,10 +86,6 @@ const handleRegistration = () => {
 
     getLocationAndRegisterData(registrationData.hospitalAddress, registrationData);
     addUserToFireBase(authData);
-
-    localStorage.setItem('login', true);
-
-    window.location = "/";
 };
 
 ReactDOM.render(
