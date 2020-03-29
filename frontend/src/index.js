@@ -24,6 +24,7 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const auth = firebase.auth();
 
 Geocode.setApiKey("AIzaSyAy1ECBsY8rGy4YiaRzbjqdHuIiwA6Lj08");
 
@@ -79,13 +80,13 @@ const handleRegistration = () => {
     getLocationAndRegisterData(registrationData.hospitalAddress, registrationData);
     addUserToFireBase(authData);
 
-    //window.open("/profile");
+    window.location = "/";
 };
 
 ReactDOM.render(
   <React.StrictMode>
       <Provider store={store}>
-          <App handle={handleRegistration}/>
+          <App handle={handleRegistration} auth={auth}/>
       </Provider>
   </React.StrictMode>,
   document.getElementById('root')

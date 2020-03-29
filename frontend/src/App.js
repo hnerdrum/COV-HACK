@@ -5,7 +5,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Registration from "./components/Registration";
 import Profile from "./components/Profile";
 
-const App = ({ handle }) => {
+const App = ({ handle, auth }) => {
   return (
       <BrowserRouter>
         <div>
@@ -13,7 +13,7 @@ const App = ({ handle }) => {
             <Route path="/" component={Home} exact/>
             <Route
                 path="/register"
-                render={(props) => <Registration {...props} onSubmit={handle} />}
+                render={(props) => <Registration {...props} onSubmit={handle} auth={auth} />}
             />
               <Route path="/profile" component={Profile}/>
           </Switch>
