@@ -8,6 +8,8 @@ import {Button} from "react-bootstrap";
 
 
 const required = value => value ? undefined : 'Required';
+const number = value =>
+    value && isNaN(Number(value)) ? 'Must be a number' : undefined
 
 const categories = ["Gloves", "Face Mask", "Breathing Guard", "Contamination Gown", "Surgical Hat"];
 const parts = ["Type1", "Type2", "Type3", "Type4"];
@@ -47,21 +49,21 @@ const InventoryField = ({ fields, meta: { touched, error } }) => {
                                component={TextField}
                                placeholder="Items in use"
                                className={styles.input}
-                               validate={required}
+                               validate={[required, number]}
                         />
                         <Field name={`${member}.reserved`}
                                label="Reserved"
                                component={TextField}
                                placeholder="Reserved items"
                                className={styles.input}
-                               validate={required}
+                               validate={[required, number]}
                         />
                         <Field name={`${member}.available`}
                                label="Available"
                                component={TextField}
                                placeholder="Available items"
                                className={styles.input}
-                               validate={required}
+                               validate={[required, number]}
                         />
                         <Button variant="danger" className={styles.deleteButton} onClick={() => fields.splice(index, 1)}>Delete</Button>
                     </div>
