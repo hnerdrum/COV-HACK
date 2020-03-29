@@ -3,7 +3,15 @@ import L from 'leaflet';
 
 const MapComponent = () => {
 
+  const initializeMap = () => {
+    let container = L.DomUtil.get('mapid');
+    if(container != null) {
+      container._leaflet_id = null;
+    }
+  };
+
   useEffect(() => {
+    initializeMap();
     const myMap = L.map('mapid', {
       center: [51.454527, -2.587910],
       zoom: 11,
