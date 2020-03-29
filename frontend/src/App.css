@@ -36,3 +36,122 @@
     transform: rotate(360deg);
   }
 }
+
+#mapid {
+  margin-top: 3rem;
+  height: 30rem;
+  width: 70%;
+}
+
+.modal {
+  display: block;
+}
+
+.wrapper {
+  width: 80%;
+  margin: auto;
+}
+
+.leftMargin10 {
+  margin-left: 10%;
+}
+
+.rightMargin10 {
+  margin-right: 10%;
+}
+
+.announcement {
+  margin: auto;
+  width: 80%;
+  margin-top: 2rem;
+}
+
+.registration-wrapper {
+  margin-top: 4rem;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.bg-blue {
+  color: white;
+  bottom: 0px;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1000;
+}
+
+.navfootColor {
+  background-color: rgb(70, 83, 103);
+}
+
+.login-button {
+  color: white;
+  width: 5rem;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+.registration-button {
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+  display: block;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+.binding-text {
+  width: 80%;
+  margin: auto;
+  background-color: white;
+  color: black;
+  padding: .5rem 0 0 .5rem ;
+  border-top: .5rem solid rgb(74,174,233);
+}
+
+.width80 {
+  width: 80%;
+  margin: auto;
+}
+
+.welcome-wrapper {
+  display: grid;
+  width: 100%;
+  background-image: url('header.png');
+}
+
+.white {
+  color: white;
+}
+
+.secondary-color{
+  color: white;
+  background-color: rgb(74,174,233);
+}
+
+.secondary-color-opac{
+  color: white;
+  border-radius: 5px;
+  background-color: rgb(74,174,233, .7);
+}
+
+.inner-wrapper {
+  background-color: rgb(74,174,233, .7);
+  margin: 4rem 10rem 4rem 10rem;
+  border-radius: 5px;
+}
+
+
+.navbar-brand {
+  color: white !important;
+}
+
+.navbar {
+  background-color: rgb(70, 83, 103, .8);
+  opacity: 1;
+}
