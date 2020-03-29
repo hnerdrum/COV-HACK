@@ -6,7 +6,7 @@ const LoginModal = (props) => {
       <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title" id="exampleModalLabel">New message</h5>
+            <h5 className="modal-title" id="exampleModalLabel">Enter login information</h5>
             <button type="button" className="close" onClick={() => props.setShowModal()}>
               <span aria-hidden="true">&times;</span>
             </button>
@@ -15,11 +15,11 @@ const LoginModal = (props) => {
             <form>
               <div className="form-group">
                 <label htmlFor="recipient-name" className="col-form-label">Email:</label>
-                <input type="text" className="form-control" id="recipient-name"/>
+                <input type="text" className="form-control" id="user-id"/>
               </div>
               <div className="form-group">
                 <label htmlFor="message-text" className="col-form-label">Password:</label>
-                <textarea className="form-control" id="message-text"></textarea>
+                <input type="password" className="form-control" id="password"/>
               </div>
             </form>
           </div>
@@ -32,5 +32,5 @@ const LoginModal = (props) => {
     </div>
   )
 }
- 
+
 export default LoginModal;

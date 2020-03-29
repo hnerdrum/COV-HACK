@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { reducer as formReducer } from 'redux-form';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LoginModal from './LoginModal';
+import { Button } from 'react-bootstrap';
 
 const Navbar = () => {
     const [showModal, setShowModal] = useState(false);
@@ -7,7 +8,7 @@ const Navbar = () => {
     return (
         <nav className="navbar sticky-top navbar-light">
           <a className="navbar-brand leftMargin10" href="#"><img src="Logo.png" width="50" height="50" alt=""/>   Resource Network</a>
-          <button type="button" className="btn rightMargin10 login-button" onClick={() => setShowModal(!showModal)}>Login</button>
+          <Button type="button" className="btn rightMargin10 login-button" onClick={() => setShowModal(!showModal)}>Login</Button>
           {showModal ? <LoginModal setShowModal={setShowModal} /> : null}
         </nav>
     );
