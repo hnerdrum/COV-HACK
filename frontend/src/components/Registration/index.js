@@ -3,17 +3,25 @@ import styles from "./Registration.module.css";
 import ContactInfo from "./ContactInfo";
 import Inventory from "./Inventory";
 import {reduxForm} from "redux-form";
+import {Button} from "react-bootstrap";
 
-const Registration = ({ handleSubmit }) => {
+const Registration = ({ handleSubmit, auth, reset }) => {
     return (
         <div className={styles.container}>
-            <h1 id={styles.title}>Registration Form</h1>
+            <div className={styles.title}>
+                <h1>Registration Form</h1>
+            </div>
             <form onSubmit={handleSubmit} className="form">
-                <ContactInfo/>
+                <ContactInfo auth={auth}/>
                 <Inventory />
-                <button className={styles.submit} type="submit">
-                    Register
-                </button>
+                <div className={styles.buttonContainer}>
+                    <Button type="submit" className={styles.submit} variant="primary" size="lg">
+                        Register
+                    </Button>
+                    <Button className={styles.reset} variant="secondary" onClick={reset} size="lg">
+                        Reset
+                    </Button>
+                </div>
             </form>
         </div>
     );

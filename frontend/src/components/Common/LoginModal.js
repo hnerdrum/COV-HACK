@@ -1,6 +1,36 @@
-import React from 'react';
+import React, {useState} from 'react';
+import styles from "../Registration/TextField/TextField.module.css";
+
+const getEmail = () => {
+  return document.getElementById("user-id").value;
+};
+
+const getPassword = () => {
+  return document.getElementById("password").value;
+};
+
+const errorSpan = (error) => (
+    <div>
+      <span style={{color: "red"}}>{error}</span>
+    </div>
+);
 
 const LoginModal = (props) => {
+
+  const [error, setError] = useState(false);
+
+  const authenticate = (email, password) => {
+    props.auth.signInWithEmailAndPassword(email, password)
+        .then((response) => {
+          props.setShowModal();
+          props.setLogin(true);
+        })
+        .catch((error) => {
+          console.log(error);
+          setError(true);
+        });
+  };
+
   return (
     <div className="modal" id="exampleModal" tabIndex="-1" role="dialog">
       <div className="modal-dialog" role="document">
@@ -22,10 +52,11 @@ const LoginModal = (props) => {
                 <input type="password" className="form-control" id="password"/>
               </div>
             </form>
+            {error && errorSpan("Invalid username and password")}
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" onClick={() => props.setShowModal()}>Close</button>
-            <button type="button" className="btn btn-primary">Login</button>
+            <button type="button" className="btn btn-primary" onClick={() => authenticate(getEmail(), getPassword())}>Login</button>
           </div>
         </div>
       </div>

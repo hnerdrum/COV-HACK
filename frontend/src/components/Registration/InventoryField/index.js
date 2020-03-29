@@ -9,11 +9,11 @@ import {Button} from "react-bootstrap";
 
 const required = value => value ? undefined : 'Required';
 const number = value =>
-    value && isNaN(Number(value)) ? 'Must be a number' : undefined
+    value && isNaN(Number(value)) ? 'Must be a number' : undefined;
 
-const categories = ["Gloves", "Face Mask", "Breathing Guard", "Contamination Gown", "Surgical Hat"];
-const parts = ["Type1", "Type2", "Type3", "Type4"];
-const grades = ["A", "B", "C"];
+const categories = ["Gloves", "Face Mask", "Breathing Guard", "Contamination Gown"];
+const parts = ["None", "Visor", "Dust", "Other"];
+const grades = ["None", "A", "B", "C"];
 
 
 const InventoryField = ({ fields, meta: { touched, error } }) => {
@@ -69,7 +69,7 @@ const InventoryField = ({ fields, meta: { touched, error } }) => {
                     </div>
                 )}
             </div>
-            <button type="button" className={styles.addButton} onClick={() => fields.push({})}>Add Equipment</button>
+            <Button variant="success" className={styles.addButton} onClick={() => fields.push({})}>Add Equipment</Button>
         </div>
 )};
 

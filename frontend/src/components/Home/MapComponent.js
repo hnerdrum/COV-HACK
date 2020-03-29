@@ -8,6 +8,13 @@ const MapComponent = ({ db }) => {
   const [hospitals, setHospitals] = useState([]);
   const [dataIsLoaded, setLoaded] = useState(false);
 
+  const initializeMap = () => {
+    let container = L.DomUtil.get('mapid');
+    if(container != null) {
+      container._leaflet_id = null;
+    }
+  };
+
   useEffect(() => {
     loadData(db)
     loadMap()

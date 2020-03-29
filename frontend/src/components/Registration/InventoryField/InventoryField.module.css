@@ -23,13 +23,13 @@
     cursor: pointer;
     padding: 10px 10px;
     border-radius: 5px;
-    background: cornflowerblue;
+    background: green;
     color: white;
     max-width: 200px;
     font-size: 14px;
 }
 
 .deleteButton {
-    margin-top: 30px;
+    margin-top: 32px;
     height: 45px;
 }

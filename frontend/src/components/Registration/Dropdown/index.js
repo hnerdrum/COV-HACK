@@ -13,11 +13,11 @@ const Dropdown = ({ input, label, placeholder, type, meta: { touched, error }, c
         <div>
         <label>{label}</label>
         <div>
-            {touched && ((error && errorSpan(error)))}
             <select className={styles.dropdown} {...input}>
                 <option></option>
                 {options.map((item, index) => {return <option value={item} key={index}>{item}</option>})}
             </select>
+            {touched && ((error && errorSpan(error)))}
         </div>
     </div>
 )};
