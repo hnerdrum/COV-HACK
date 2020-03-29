@@ -1,9 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import L from 'leaflet';
 
-const MapComponent = () => {
+const MapComponent = ({ db }) => {
+
+  const [faceMaskCount, setFaceMaskCount] = useState(0);
+  const [hospitals, setHospitals] = useState([]);
 
   useEffect(() => {
+    loadData(db)
+    console.log(hospitals)
+    loadMap()
+  }, [""])
+
+  const loadData = () => {
+    return db.collection("hospitals")
+      .get()
+      .then((snap) => {
+        snap.forEach((doc) => {
+          setHospitals(hospitals => [...hospitals, {...doc.data()}])
+        })
+      })
+  };
+
+  const loadMap = () => {
     const myMap = L.map('mapid', {
       center: [51.454527, -2.587910],
       zoom: 11,
@@ -25,7 +44,7 @@ const MapComponent = () => {
     popup3.bindPopup("<b>Hello world!</b><br>I am a popup.")
     popup4.bindPopup("<b>Hello world!</b><br>I am a popup.")
     popup5.bindPopup("<b>Hello world!</b><br>I am a popup.")
-  })
+  };
 
   // 51.497619, -2.590936
   // 51.468747, -2.516716

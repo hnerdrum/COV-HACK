@@ -85,7 +85,7 @@ const handleRegistration = () => {
 ReactDOM.render(
   <React.StrictMode>
       <Provider store={store}>
-          <App handle={handleRegistration}/>
+          <App handle={handleRegistration} db={db}/>
       </Provider>
   </React.StrictMode>,
   document.getElementById('root')
