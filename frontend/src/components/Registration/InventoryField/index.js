@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from "./InventoryField.module.css";
 import {Field} from "redux-form";
 import TextField from "../TextField";
@@ -6,12 +6,6 @@ import Dropdown from "../Dropdown";
 import 'react-widgets/dist/css/react-widgets.css'
 import {Button} from "react-bootstrap";
 
-
-const errorSpan = (error) => (
-    <div>
-        <span className={styles.error}>{error}</span>
-    </div>
-);
 
 const required = value => value ? undefined : 'Required';
 
