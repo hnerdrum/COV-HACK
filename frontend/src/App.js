@@ -11,7 +11,7 @@ const App = ({ handle, auth }) => {
   return (
       <BrowserRouter>
         <div>
-          <Navbar />
+          <Navbar auth={auth}/>
           <Switch>
             <Route path="/" component={Home} exact/>
             <Route
