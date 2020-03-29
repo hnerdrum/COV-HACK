@@ -10,7 +10,13 @@
     "leaflet": "^1.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-router-dom": "latest",
+    "react-redux": "latest",
+    "redux": "latest",
+    "react-widgets": "latest",
+    "react-bootstrap-dropdown-menu": "latest",
+    "react-geocode": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,6 +40,17 @@
     ]
   },
   "devDependencies": {
+<<<<<<< HEAD
     "react-router-dom": "^5.1.2"
+=======
+    "react-redux": "latest",
+    "react-router-dom": "latest",
+    "redux": "latest",
+    "redux-form": "^8.3.1",
+    "redux-forms": "latest",
+    "react-widgets": "latest",
+    "react-bootstrap-dropdown-menu": "latest",
+    "react-geocode": "latest"
+>>>>>>> 5091880f6f3410daa46474e07761cce00af3e256
   }
 }

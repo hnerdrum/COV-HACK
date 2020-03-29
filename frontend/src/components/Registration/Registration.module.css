@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: cornflowerblue;
+    color: white;
+    font-size: 20px;
+}

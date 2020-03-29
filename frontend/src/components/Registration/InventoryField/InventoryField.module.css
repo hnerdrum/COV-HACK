@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    margin-bottom: 75px;
+}
+
+.input {
+    width: 200px;
+    height: 100%;
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.addButton {
+    cursor: pointer;
+    padding: 10px 10px;
+    border-radius: 5px;
+    background: cornflowerblue;
+    color: white;
+    max-width: 200px;
+    font-size: 14px;
+}
+
+.deleteButton {
+    margin-top: 30px;
+    height: 45px;
+}
