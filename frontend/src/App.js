@@ -3,6 +3,7 @@ import './App.css';
 import Home from './components/Home';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Registration from "./components/Registration";
+import Profile from "./components/Profile";
 
 const App = ({ handle }) => {
   return (
@@ -14,6 +15,7 @@ const App = ({ handle }) => {
                 path="/register"
                 render={(props) => <Registration {...props} onSubmit={handle} />}
             />
+              <Route path="/profile" component={Profile}/>
           </Switch>
         </div>
       </BrowserRouter>

@@ -69,16 +69,17 @@ const getLocationAndRegisterData = (address, data) => {
 const handleRegistration = () => {
     const data = store.getState().form.register.values;
 
-    const { email, password, passwordRepeat, ...registrationData } = data;
+    const { password, passwordRepeat, ...registrationData } = data;
 
     const authData = {
-      email,
+      email: registrationData.email,
       password
     };
 
     getLocationAndRegisterData(registrationData.hospitalAddress, registrationData);
     addUserToFireBase(authData);
 
+    //window.open("/profile");
 };
 
 ReactDOM.render(

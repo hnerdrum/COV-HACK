@@ -15,7 +15,7 @@ const Registration = ({ handleSubmit, reset }) => {
                 <ContactInfo/>
                 <Inventory />
                 <div className={styles.buttonContainer}>
-                    <Button className={styles.submit} variant="primary" size="lg">
+                    <Button type="submit" className={styles.submit} variant="primary" size="lg">
                         Register
                     </Button>
                     <Button className={styles.reset} variant="secondary" onClick={reset} size="lg">
