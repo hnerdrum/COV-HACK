@@ -81,6 +81,8 @@ const handleRegistration = () => {
     getLocationAndRegisterData(registrationData.hospitalAddress, registrationData);
     addUserToFireBase(authData);
 
+    localStorage.setItem('login', true);
+
     window.location = "/";
 };
 

@@ -2,10 +2,10 @@ import React from 'react';
 import MapComponent from './MapComponent';
 import WelcomeMessage from './WelcomeMessage';
 
-const Home = () => {
+const Home = ({ login, setLogin }) => {
     return (
         <div className="home-wrapper">
-            <WelcomeMessage />
+            <WelcomeMessage login={login} setLogin={setLogin}/>
             <MapComponent />
         </div>
     );
