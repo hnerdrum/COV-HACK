@@ -165,6 +165,10 @@
   background-image: url('header.png');
 }
 
+.plot3inner {
+  margin-top: 2.3rem;
+}
+
 .white {
   color: white;
 }

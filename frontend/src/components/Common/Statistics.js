@@ -162,9 +162,9 @@ const Statistics = () => {
         <div id="plot3" className="col plot">
           <DiscreteColorLegend
           width={180}
-          items={["St. Judes", "St. Patricks", "St. Johns", ""]}
+          items={["St. Judes", "St. Patricks", "St. Johns"]}
           />
-        <XYPlot xDomain={[0, 80]} yDomain={[0, 250]} width={300} height={250}>
+        <XYPlot className="plot3inner" xDomain={[0, 80]} yDomain={[0, 250]} width={300} height={250}>
               <VerticalGridLines />
               <HorizontalGridLines />
               <XAxis title="Available" titlePosition="middle-under" style={{
