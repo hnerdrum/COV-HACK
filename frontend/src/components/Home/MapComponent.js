@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import DropdownSimple from '../Common/DropdownSimple';
+import { Button } from 'react-bootstrap';
 import L from 'leaflet';
 
 const MapComponent = ({ db }) => {
@@ -7,6 +9,8 @@ const MapComponent = ({ db }) => {
   const [mapIsSet, setMapIsSet] = useState(false);
   const [hospitals, setHospitals] = useState([]);
   const [dataIsLoaded, setLoaded] = useState(false);
+  const [markers, setMarkers] = useState([]);
+  const [filter, setFilter] = useState("");
 
   const initializeMap = () => {
     let container = L.DomUtil.get('mapid');
@@ -15,16 +19,14 @@ const MapComponent = ({ db }) => {
     }
   };
 
+
   useEffect(() => {
     loadData(db)
     loadMap()
-  }, [dataIsLoaded])
-
-
+  }, [dataIsLoaded, filter])
 
   const loadData = () => {
     if(!dataIsLoaded){
-      console.log("holalala")
       return db.collection("hospitals")
         .get()
         .then((snap) => {
@@ -38,7 +40,6 @@ const MapComponent = ({ db }) => {
 
   const loadMap = () => {
     if (!mapIsSet){
-      console.log("tittei")
       const mymap = L.map('mapid', {
         center: [54.070192, -3.869140],
         zoom: 5,
@@ -52,40 +53,60 @@ const MapComponent = ({ db }) => {
       setMapIsSet(true)
     }
 
+    updateMarkers()
+  };
+
+
+  const updateMarkers = () => {
+    setMarkers([])
+    var inFilter = false;
     hospitals.map((h) => {
-      var popup6 = L.circleMarker([h.lat, h.lng], { radius: 10}).addTo(mymapRef);
+      var red = false;
+      var orange = false;
+      var green = true;
+      var options = {radius: 12};
       var inventoryInfo = "";
-      h.equipment.map((x) => {
+      var filtered = h.equipment;
+      if (filter !== ""){
+        filtered = h.equipment.filter((x) => x.category.toLowerCase() == filter.toLowerCase())
+        {(filtered.length === 0) ? (inFilter = false) : (inFilter = true)}
+      } else {
+        inFilter = true;
+      }
+
+      filtered.map((x) => {
+        if (x.available > 0 && options['color'] != 'red' && options['color'] != 'orange'){
+          options['color'] = 'green'
+        } else if (x.reserved > 0 && options['color'] != 'red'){
+          options['color'] = 'orange'
+        } else {
+          options['color'] = 'red'
+        }
         var category = x.category;
         var available = x.available;
         var inuse = x.inUse;
         var reserved = x.reserved
         inventoryInfo = inventoryInfo + category + "<br>" + "Available: " + available + "<br>" + "In use: " + inuse +"<br>"+ "Reserved: " + reserved +"<br><br>";
       });
-      popup6.bindPopup(inventoryInfo);
+
+      if (inFilter){
+        var popup = L.circleMarker([h.lat, h.lng], options).addTo(mymapRef);
+        popup.bindPopup(inventoryInfo);
+        setMarkers(markers => [...markers, popup])
+      }
     })
-
-    //var popup1 = L.circleMarker([51.497619, -2.590936], { radius: 15}).addTo(map);
-    //var popup2 = L.circleMarker([51.468747, -2.516716], { radius: 15}).addTo(map);
-    //var popup3 = L.circleMarker([51.412819, -2.583208], { radius: 15}).addTo(map);
-    //var popup4 = L.circleMarker([51.457448, -2.622750], { radius: 15}).addTo(map);
-    //var popup5 = L.circleMarker([51.458354, -2.593978], { radius: 15}).addTo(map);
-
-    //popup1.bindPopup("<b>Hello world!</b><br>I am a popup.")
-    //popup2.bindPopup("<b>Hello world!</b><br>I am a popup.")
-    //popup3.bindPopup("<b>Hello world!</b><br>I am a popup.")
-    //popup4.bindPopup("<b>Hello world!</b><br>I am a popup.")
-    //popup5.bindPopup("<b>Hello world!</b><br>I am a popup.")
   };
 
-  // 51.497619, -2.590936
-  // 51.468747, -2.516716
-  // 51.412819, -2.583208
-  // 51.457448, -2.622750
-  // 51.458354, -2.593978
-
   return (
-    <div id="mapid"></div>
+    <div className="row">
+      <div id="mapid"></div>
+      <div className="side-bar-map">
+        <DropdownSimple  filter = { setFilter }/>
+        <div>
+          <Button>Complete recommended transaction</Button>
+        </div>
+      </div>
+    </div>
   )
 }
 

@@ -115,8 +115,47 @@
   border-top: .5rem solid rgb(74,174,233);
 }
 
+.form-group {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-top: 3rem;
+  max-height: 15rem;
+}
+
+.side-bar-map {
+  width: 15%;
+  margin: auto;
+}
+
+.plot-wrapper {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 90%;
+}
+
+.rv-xy-plot {
+  width: 10rem !important;
+  height: 10rem !important;
+}
+
+.plot {
+  width: 15rem;
+  height: 25rem;
+  margin: .5rem;
+}
+
+.dropdown-button {
+  border: none;
+  background-color: rgb(74,174,233);
+  margin: auto;
+}
+
 .width80 {
-  width: 80%;
+  width: 80% !important;
   margin: auto;
 }
 

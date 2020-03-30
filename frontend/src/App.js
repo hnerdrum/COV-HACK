@@ -14,7 +14,6 @@ const App = ({ handle, auth, db }) => {
   };
 
   const setLoginState = (bool) => {
-    console.log("here");
     localStorage.setItem('login', bool);
     window.location.reload();
   };
