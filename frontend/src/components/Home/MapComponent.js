@@ -103,6 +103,9 @@ const MapComponent = ({ db }) => {
       <div className="side-bar-map">
         <DropdownSimple  filter = { setFilter }/>
         <div>
+          <div className="img-container"><img height="130px" width="200px" src="rog.png"/></div>
+        </div>
+        <div>
           <Button>Complete recommended transaction</Button>
         </div>
       </div>

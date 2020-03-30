@@ -122,16 +122,16 @@ const Statistics = () => {
         <div id="plot1" className="col plot">
           <DiscreteColorLegend
           width={180}
-          items={["St. Judes", "St.Judes predicton", "St. Patrics", "St. Patrics prediction"]}
+          items={["St. Judes", "St.Judes predicton", "St. Patricks", "St. Patricks prediction"]}
           />
           <XYPlot width={300} height={250}>
               <VerticalGridLines />
               <HorizontalGridLines />
               <XAxis title="Time in days" titlePosition="middle-under" style={{
-                title: {fontSize: '10px'}
+                title: {fontSize: '14px'}
               }}/>
             <YAxis title="Masks available" titlePosition="middle-under" style={{
-                title: {fontSize: '10px'}
+                title: {fontSize: '14px'}
               }}/>
             <LineSeries data={data_plot1} />
             <LineSeries strokeStyle={"dashed"} data={data_plot1_projection} />
@@ -142,16 +142,16 @@ const Statistics = () => {
         <div id="plot2" className="col plot">
           <DiscreteColorLegend
           width={180}
-          items={["St. Judes", "St.Judes predicton", "St. Patrics", "St. Patrics prediction"]}
+          items={["St. Judes", "St.Judes predicton", "St. Patricks", "St. Patricks prediction"]}
           />
           <XYPlot width={300} height={250}>
               <VerticalGridLines />
               <HorizontalGridLines />
               <XAxis title="Time in days" titlePosition="middle-under" style={{
-                title: {fontSize: '10px'}
+                title: {fontSize: '14px'}
               }}/>
             <YAxis title="Masks in use" titlePosition="middle-under" style={{
-                title: {fontSize: '10px'}
+                title: {fontSize: '14px'}
               }}/>
             <LineSeries data={data_plot2} />
               <LineSeries strokeStyle={"dashed"} data={data_plot2_projection} />
@@ -162,16 +162,16 @@ const Statistics = () => {
         <div id="plot3" className="col plot">
           <DiscreteColorLegend
           width={180}
-          items={["St. Judes", "St. Patrics", "St. Johns", ""]}
+          items={["St. Judes", "St. Patricks", "St. Johns", ""]}
           />
         <XYPlot xDomain={[0, 80]} yDomain={[0, 250]} width={300} height={250}>
               <VerticalGridLines />
               <HorizontalGridLines />
               <XAxis title="Available" titlePosition="middle-under" style={{
-                title: {fontSize: '10px'}
+                title: {fontSize: '14px'}
               }}/>
             <YAxis title="In use" titlePosition="middle-under" style={{
-                title: {fontSize: '10px'}
+                title: {fontSize: '15px'}
               }}/>
               <MarkSeries
                 className="Hospital status"
