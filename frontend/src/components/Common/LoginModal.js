@@ -23,7 +23,8 @@ const LoginModal = (props) => {
     props.auth.signInWithEmailAndPassword(email, password)
         .then((response) => {
           props.setShowModal();
-          props.setLogin(true);
+          localStorage.setItem('login', true);
+          window.location.reload();
         })
         .catch((error) => {
           console.log(error);

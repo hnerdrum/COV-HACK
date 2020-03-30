@@ -6,6 +6,10 @@
     margin-bottom: 50px;
 }
 
+.title {
+    margin-bottom: 50px;
+}
+
 .submit {
     cursor: pointer;
     padding: 10px 20px;
