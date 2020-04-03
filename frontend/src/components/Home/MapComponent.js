@@ -32,7 +32,7 @@ const MapComponent = ({ db }) => {
         .then((snap) => {
           snap.forEach((doc) => {
             setHospitals(hospitals => [...hospitals, {...doc.data()}])
-            })
+            });
           setLoaded(true)
         })
     }
@@ -48,8 +48,8 @@ const MapComponent = ({ db }) => {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           }),
         ]
-      })
-      setMap(mymap)
+      });
+      setMap(mymap);
       setMapIsSet(true)
     }
 
@@ -58,17 +58,17 @@ const MapComponent = ({ db }) => {
 
 
   const updateMarkers = () => {
-    setMarkers([])
+    setMarkers([]);
     var inFilter = false;
     hospitals.map((h) => {
-      var red = false;
-      var orange = false;
-      var green = true;
-      var options = {radius: 12};
-      var inventoryInfo = "";
-      var filtered = h.equipment;
+      let red = false;
+      let orange = false;
+      let green = true;
+      let options = {radius: 12};
+      let inventoryInfo = "";
+      let filtered = h.equipment || [];
       if (filter !== ""){
-        filtered = h.equipment.filter((x) => x.category.toLowerCase() == filter.toLowerCase())
+        filtered = filtered.filter((x) => x.category.toLowerCase() == filter.toLowerCase())
         {(filtered.length === 0) ? (inFilter = false) : (inFilter = true)}
       } else {
         inFilter = true;
@@ -111,6 +111,6 @@ const MapComponent = ({ db }) => {
       </div>
     </div>
   )
-}
+};
 
 export default MapComponent;
