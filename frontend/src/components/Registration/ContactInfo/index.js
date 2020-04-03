@@ -16,17 +16,7 @@ const equalPassword = (value, allValues) =>
         'Passwords do not match.' :
         undefined;
 
-const testEmail = (auth, email) => {
-    auth.fetchSignInMethodsForEmail(email).then((response) => {
-        return (response === undefined || response.length === 0);
-    })
-};
-
 const ContactInfo = ({ auth }) => {
-
-    //const emailInUse = (value) => testEmail(auth, value) ? undefined : "Email is already in use.";
-    //const emailInUse = (value) => value !== "henrik.nerdrum@gmail.com" ? undefined : "Email is already in use.";
-    const emailInUse = (value) => value.length > 0 ? "Email is already in use" : undefined;
 
     return (
         <div className={styles.container}>

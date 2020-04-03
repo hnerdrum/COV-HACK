@@ -12,14 +12,6 @@ const MapComponent = ({ db }) => {
   const [markers, setMarkers] = useState([]);
   const [filter, setFilter] = useState("");
 
-  const initializeMap = () => {
-    let container = L.DomUtil.get('mapid');
-    if(container != null) {
-      container._leaflet_id = null;
-    }
-  };
-
-
   useEffect(() => {
     loadData(db)
     loadMap()
@@ -59,11 +51,8 @@ const MapComponent = ({ db }) => {
 
   const updateMarkers = () => {
     setMarkers([]);
-    var inFilter = false;
+    let inFilter = false;
     hospitals.map((h) => {
-      let red = false;
-      let orange = false;
-      let green = true;
       let options = {radius: 12};
       let inventoryInfo = "";
       let filtered = h.equipment || [];
@@ -82,15 +71,15 @@ const MapComponent = ({ db }) => {
         } else {
           options['color'] = 'red'
         }
-        var category = x.category;
-        var available = x.available;
-        var inuse = x.inUse;
-        var reserved = x.reserved
+        const category = x.category;
+        const available = x.available;
+        const inuse = x.inUse;
+        const reserved = x.reserved;
         inventoryInfo = inventoryInfo + category + "<br>" + "Available: " + available + "<br>" + "In use: " + inuse +"<br>"+ "Reserved: " + reserved +"<br><br>";
       });
 
       if (inFilter){
-        var popup = L.circleMarker([h.lat, h.lng], options).addTo(mymapRef);
+        const popup = L.circleMarker([h.lat, h.lng], options).addTo(mymapRef);
         popup.bindPopup(inventoryInfo);
         setMarkers(markers => [...markers, popup])
       }
@@ -99,11 +88,11 @@ const MapComponent = ({ db }) => {
 
   return (
     <div className="row">
-      <div id="mapid"></div>
+      <div id="mapid"/>
       <div className="side-bar-map">
         <DropdownSimple  filter = { setFilter }/>
         <div>
-          <div className="img-container"><img height="130px" width="200px" src="rog.png"/></div>
+          <div className="img-container"><img height="130px" width="200px" src="rog.png" alt=""/></div>
         </div>
         <div>
           <Button>Complete recommended transaction</Button>

@@ -23,7 +23,6 @@ const Registration = ({ handleSubmit, auth, db, showModal, setShowModal, reset }
 
     const validateEmail = (authData, registrationData) => {
         auth.fetchSignInMethodsForEmail(authData.email).then((response) => {
-            console.log("in func: " + (response === undefined || response.length === 0));
             if(response === undefined || response.length === 0) {
                 getLocationAndRegisterData(registrationData.hospitalAddress, registrationData);
                 addUserToFireBase(authData);

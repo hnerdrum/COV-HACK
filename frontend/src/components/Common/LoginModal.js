@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import styles from "../Registration/TextField/TextField.module.css";
 
 const getEmail = () => {
   return document.getElementById("user-id").value;

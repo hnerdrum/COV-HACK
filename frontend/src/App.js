@@ -5,7 +5,6 @@ import Footer from './components/Common/Footer';
 import Navbar from './components/Common/Navbar';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Registration from "./components/Registration";
-import Profile from "./components/Profile";
 
 const App = ({ auth, db }) => {
 
