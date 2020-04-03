@@ -61,7 +61,7 @@ const ContactInfo = ({ auth }) => {
                    label="Email address of contact person"
                    component={TextField}
                    placeholder="Email"
-                   validate={[required, email]}
+                   validate={[required, email, emailInUse]}
                    type="email"
             />
             <Field name="phoneNumber"
