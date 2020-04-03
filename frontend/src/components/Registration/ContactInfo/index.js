@@ -24,7 +24,9 @@ const testEmail = (auth, email) => {
 
 const ContactInfo = ({ auth }) => {
 
-    const emailInUse = (value) => testEmail(auth, value) ? undefined : "Email is already in use.";
+    //const emailInUse = (value) => testEmail(auth, value) ? undefined : "Email is already in use.";
+    //const emailInUse = (value) => value !== "henrik.nerdrum@gmail.com" ? undefined : "Email is already in use.";
+    const emailInUse = (value) => value.length > 0 ? "Email is already in use" : undefined;
 
     return (
         <div className={styles.container}>
@@ -61,7 +63,7 @@ const ContactInfo = ({ auth }) => {
                    label="Email address of contact person"
                    component={TextField}
                    placeholder="Email"
-                   validate={[required, email, emailInUse]}
+                   validate={[required, email]}
                    type="email"
             />
             <Field name="phoneNumber"

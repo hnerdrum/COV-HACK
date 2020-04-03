@@ -37,61 +37,10 @@ const rootReducer = combineReducers({
 
 const store = createStore(rootReducer);
 
-const addRegistrationToFirebase = (registration) => {
-    db.collection("hospitals").add(registration)
-        .then((docRef) => {
-            console.log("Document written with ID: " + docRef.id);
-        })
-        .catch((error) => {
-            console.error("Error adding document: " + error);
-        })
-};
-
-const addUserToFireBase = (credentials) => {
-    const { email, password } = credentials;
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then((response) => {
-            console.log("here");
-            localStorage.setItem('login', true);
-            window.location.assign("/");
-        })
-        .catch((error) => {
-        console.log("User registration failed with error: " + error);
-    });
-};
-
-const getLocationAndRegisterData = (address, data) => {
-    Geocode.fromAddress(address).then(
-        response => {
-            const { lat, lng } = response.results[0].geometry.location;
-            data.lat = lat;
-            data.lng = lng;
-            addRegistrationToFirebase(data);
-        },
-        error => {
-            console.error(error);
-        }
-    );
-};
-
-const handleRegistration = () => {
-    const data = store.getState().form.register.values;
-
-    const { password, passwordRepeat, ...registrationData } = data;
-
-    const authData = {
-      email: registrationData.email,
-      password
-    };
-
-    getLocationAndRegisterData(registrationData.hospitalAddress, registrationData);
-    addUserToFireBase(authData);
-};
-
 ReactDOM.render(
   <React.StrictMode>
       <Provider store={store}>
-          <App handle={handleRegistration} db={db} auth={auth}/>
+          <App db={db} auth={auth}/>
       </Provider>
   </React.StrictMode>,
   document.getElementById('root')

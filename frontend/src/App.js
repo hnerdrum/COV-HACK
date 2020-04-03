@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Home from './components/Home';
 import Footer from './components/Common/Footer';
@@ -7,7 +7,9 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Registration from "./components/Registration";
 import Profile from "./components/Profile";
 
-const App = ({ handle, auth, db }) => {
+const App = ({ auth, db }) => {
+
+  const [showModal, setShowModal] = useState(false);
 
   const loadLoginState = () => {
     return localStorage.getItem('login');
@@ -31,7 +33,7 @@ const App = ({ handle, auth, db }) => {
             />
             <Route
                 path="/register"
-                render={(props) => <Registration {...props} onSubmit={handle} auth={auth} />}
+                render={(props) => <Registration {...props} auth={auth} db={db} showModal={showModal} setShowModal={setShowModal}/>}
             />
           </Switch>
           <Footer />

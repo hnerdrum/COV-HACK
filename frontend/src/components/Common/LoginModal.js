@@ -63,6 +63,6 @@ const LoginModal = (props) => {
       </div>
     </div>
   )
-}
+};
 
 export default LoginModal;
