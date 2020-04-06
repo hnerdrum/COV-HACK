@@ -17,7 +17,7 @@ const WelcomeMessage = ({ login }) => {
           return (
               <div className="registration-wrapper">
                   <h4 className="registration-text alignCenter white">Start connecting today</h4>
-                  <button type="button" className="btn btn-lg registration-button" onClick={clickRegister}>Register</button>
+                  <button type="button" className="btn btn-lg registration-button" onClick={clickRegister}>REGISTER</button>
               </div>
           )
       }

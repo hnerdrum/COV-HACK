@@ -7,7 +7,7 @@ const errorSpan = (error) => (
     </div>
 );
 
-const Dropdown = ({ input, label, placeholder, type, meta: { touched, error }, className, options }) => {
+const Dropdown = ({ input, label, meta: { touched, error }, options }) => {
 
     return (
         <div>

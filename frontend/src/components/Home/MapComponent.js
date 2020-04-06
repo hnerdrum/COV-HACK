@@ -64,17 +64,17 @@ const MapComponent = ({ db }) => {
       }
 
       filtered.map((x) => {
-        if (x.available > 0 && options['color'] != 'red' && options['color'] != 'orange'){
+        if (x.available && x.available > 0 && options['color'] != 'red' && options['color'] != 'orange'){
           options['color'] = 'green'
-        } else if (x.reserved > 0 && options['color'] != 'red'){
+        } else if (x.reserved && x.reserved > 0 && options['color'] != 'red'){
           options['color'] = 'orange'
         } else {
           options['color'] = 'red'
         }
-        const category = x.category;
-        const available = x.available;
-        const inuse = x.inUse;
-        const reserved = x.reserved;
+        const category = x.category || "";
+        const available = x.available || "";
+        const inuse = x.inUse || "";
+        const reserved = x.reserved || "";
         inventoryInfo = inventoryInfo + category + "<br>" + "Available: " + available + "<br>" + "In use: " + inuse +"<br>"+ "Reserved: " + reserved +"<br><br>";
       });
 

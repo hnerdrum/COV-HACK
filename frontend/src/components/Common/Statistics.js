@@ -25,7 +25,7 @@ const Statistics = () => {
       {x: 12, y: 144},
       {x: 13, y: 140},
       {x: 14, y: 138},
-    ]
+    ];
 
     const data_plo1_hospital2 = [
         {x: 0, y: 100},
@@ -47,7 +47,7 @@ const Statistics = () => {
       {x: 12, y: 23},
       {x: 13, y: 22},
       {x: 14, y: 19},
-    ]
+    ];
 
     // plot 2
     const data_plot2 = [
@@ -70,7 +70,7 @@ const Statistics = () => {
         {x: 12, y: 410},
         {x: 13, y: 480},
         {x: 14, y: 510},
-      ]
+      ];
 
       const data_plot2_hospital2 = [
           {x: 0, y: 10},
@@ -92,29 +92,29 @@ const Statistics = () => {
         {x: 12, y: 180},
         {x: 13, y: 205},
         {x: 14, y: 225},
-      ]
+      ];
 
-      var scatter_data_1 = [
+      const scatter_data_1 = [
         {x: 60, y: 55, size: 15},
-      ]
+      ];
 
-      var scatter_data_2 = [
+      const scatter_data_2 = [
         {x: 5, y: 110, size: 10},
-      ]
+      ];
 
-      var scatter_data_3 = [
+      const scatter_data_3 = [
         {x: 15, y: 200, size: 10},
-      ]
+      ];
 
-      var vertical_line_data = [
+      const vertical_line_data = [
         {x: 40, y: 0},
         {x: 40, y: 250},
-      ]
+      ];
 
-      var horizontal_line_data = [
+      const horizontal_line_data = [
         {x: 0, y: 125},
         {x: 80, y: 125},
-      ]
+      ];
 
   return (
     <div className="plot-wrapper">

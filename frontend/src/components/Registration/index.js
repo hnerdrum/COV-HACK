@@ -79,10 +79,10 @@ const Registration = ({ handleSubmit, auth, db, showModal, setShowModal, reset }
                 <Inventory />
                 <div className={styles.buttonContainer}>
                     <Button type="submit" className={styles.submit} variant="primary" size="lg">
-                        Register
+                        REGISTER
                     </Button>
                     <Button className={styles.reset} variant="secondary" onClick={reset} size="lg">
-                        Reset
+                        RESET
                     </Button>
                 </div>
             </form>

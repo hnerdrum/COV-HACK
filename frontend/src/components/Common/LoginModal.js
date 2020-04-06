@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 
 const getEmail = () => {
-  return document.getElementById("user-id").value;
+  return document.getElementById("user-id").value || "";
 };
 
 const getPassword = () => {
-  return document.getElementById("password").value;
+  return document.getElementById("password").value || "";
 };
 
 const errorSpan = (error) => (
@@ -14,14 +14,14 @@ const errorSpan = (error) => (
     </div>
 );
 
-const LoginModal = (props) => {
+const LoginModal = ({ setShowModal, auth }) => {
 
   const [error, setError] = useState(false);
 
   const authenticate = (email, password) => {
-    props.auth.signInWithEmailAndPassword(email, password)
+    auth.signInWithEmailAndPassword(email, password)
         .then((response) => {
-          props.setShowModal();
+          setShowModal();
           localStorage.setItem('login', true);
           window.location.reload();
         })
@@ -37,7 +37,7 @@ const LoginModal = (props) => {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id="exampleModalLabel">Enter login information</h5>
-            <button type="button" className="close" onClick={() => props.setShowModal()}>
+            <button type="button" className="close" onClick={() => setShowModal()}>
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -55,7 +55,7 @@ const LoginModal = (props) => {
             {error && errorSpan("Invalid username and password")}
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" onClick={() => props.setShowModal()}>Close</button>
+            <button type="button" className="btn btn-secondary" onClick={() => setShowModal()}>Close</button>
             <button type="button" className="btn btn-primary" onClick={() => authenticate(getEmail(), getPassword())}>Login</button>
           </div>
         </div>
