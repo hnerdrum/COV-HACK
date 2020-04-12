@@ -16,7 +16,7 @@ const equalPassword = (value, allValues) =>
         'Passwords do not match.' :
         undefined;
 
-const ContactInfo = ({ auth }) => {
+const ContactInfo = () => {
 
     return (
         <div className={styles.container}>

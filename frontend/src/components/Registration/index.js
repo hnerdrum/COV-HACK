@@ -12,6 +12,7 @@ const Registration = ({ handleSubmit, auth, db, showModal, setShowModal, reset }
 
     const submit = (values) => {
         const { password, passwordRepeat, ...registrationData } = values;
+        registrationData.createdAt = firebase.firestore.FieldValue.serverTimestamp();
 
         const authData = {
             email: registrationData.email,
