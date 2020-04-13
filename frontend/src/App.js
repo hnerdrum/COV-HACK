@@ -11,23 +11,18 @@ const App = ({ auth, db }) => {
   const [showModal, setShowModal] = useState(false);
 
   const loadLoginState = () => {
-    return localStorage.getItem('login');
+    return localStorage.getItem('token');
   };
 
-  const setLoginState = (bool) => {
-    localStorage.setItem('login', bool);
-    window.location.reload();
-  };
-
-  const login = loadLoginState();
+  const token = loadLoginState();
 
   return (
       <BrowserRouter>
         <div>
-          <Navbar auth={auth} login={login} setLogin={setLoginState}/>
+          <Navbar auth={auth} token={token} />
           <Switch>
             <Route path="/"
-                   render={(props) => <Home {...props} login={login} db={db}  setLogin={setLoginState} />}
+                   render={(props) => <Home {...props} token={token} db={db} />}
                    exact
             />
             <Route

@@ -3,10 +3,10 @@ import MapComponent from './MapComponent';
 import WelcomeMessage from './WelcomeMessage';
 import Statistics from '../Common/Statistics';
 
-const Home = ({ login, setLogin, db }) => {
+const Home = ({ token, db }) => {
     return (
         <div className="home-wrapper">
-            <WelcomeMessage login={login} setLogin={setLogin}/>
+            <WelcomeMessage token={token} />
             <MapComponent db={db} />
             <Statistics />
         </div>

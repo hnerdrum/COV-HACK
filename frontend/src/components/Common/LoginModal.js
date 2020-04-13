@@ -14,6 +14,16 @@ const errorSpan = (error) => (
     </div>
 );
 
+const setToken = (auth) => {
+    auth.currentUser.getIdToken(true).then((idToken) => {
+        localStorage.setItem('token', idToken);
+        window.location.reload();
+    })
+        .catch((error) => {
+            console.log(error);
+        })
+};
+
 const LoginModal = ({ setShowModal, auth }) => {
 
   const [error, setError] = useState(false);
@@ -22,8 +32,7 @@ const LoginModal = ({ setShowModal, auth }) => {
     auth.signInWithEmailAndPassword(email, password)
         .then((response) => {
           setShowModal();
-          localStorage.setItem('login', true);
-          window.location.reload();
+          setToken(auth);
         })
         .catch((error) => {
           console.log(error);
