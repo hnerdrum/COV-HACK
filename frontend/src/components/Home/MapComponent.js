@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import DropdownSimple from '../Common/DropdownSimple';
-import { Button } from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import L from 'leaflet';
 
 const MapComponent = ({ db }) => {
@@ -30,12 +30,6 @@ const MapComponent = ({ db }) => {
     }
   };
 
-  const removeMarkers = (markers) => {
-    markers.forEach(marker => {
-      mymapRef.removeLayer(marker);
-    })
-  };
-
   const loadMap = () => {
     if (!mapIsSet){
       const mymap = L.map('mapid', {
@@ -54,9 +48,21 @@ const MapComponent = ({ db }) => {
     updateMarkers()
   };
 
+  const getMarkerFromCoordinates = (lat, lng) => {
+    if(markers) {
+      return markers.filter((marker) => {
+        if (marker._latlng.lat == lat && marker._latlng.lng == lng) {
+          return marker;
+        }
+      });
+    }
+    else {
+      return null;
+    }
+  };
+
 
   const updateMarkers = () => {
-    removeMarkers(markers);
     setMarkers([]);
     let inFilter = false;
     hospitals.map((h) => {
@@ -85,8 +91,10 @@ const MapComponent = ({ db }) => {
         inventoryInfo = inventoryInfo + category + "<br>" + "Available: " + available + "<br>" + "In use: " + inuse +"<br>"+ "Reserved: " + reserved +"<br><br>";
       });
 
-      const popup = L.circleMarker([h.lat, h.lng], options);
+      const oldMarker = getMarkerFromCoordinates(h.lat, h.lng);
+      oldMarker[0] && mymapRef.removeLayer(oldMarker[0]);
       if (inFilter){
+        const popup = L.circleMarker([h.lat, h.lng], options);
         mymapRef.addLayer(popup);
         popup.bindPopup(inventoryInfo);
         setMarkers(markers => [...markers, popup])
