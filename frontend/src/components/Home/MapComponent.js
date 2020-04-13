@@ -3,7 +3,7 @@ import DropdownSimple from '../Common/DropdownSimple';
 import {Button} from 'react-bootstrap';
 import L from 'leaflet';
 
-const MapComponent = ({ db }) => {
+const MapComponent = ({ db, token }) => {
 
   const [mymapRef, setMap] = useState({});
   const [mapIsSet, setMapIsSet] = useState(false);
@@ -102,6 +102,14 @@ const MapComponent = ({ db }) => {
     })
   };
 
+  const renderTransactionButton = () => {
+    if(token) {
+      return (
+          <Button>Complete recommended transaction</Button>
+      )
+    }
+  };
+
   return (
     <div className="row">
       <div id="mapid"/>
@@ -111,7 +119,7 @@ const MapComponent = ({ db }) => {
           <div className="img-container"><img height="130px" width="200px" src="rog.png" alt=""/></div>
         </div>
         <div>
-          <Button>Complete recommended transaction</Button>
+          { renderTransactionButton() }
         </div>
       </div>
     </div>

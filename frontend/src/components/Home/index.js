@@ -7,7 +7,7 @@ const Home = ({ token, db }) => {
     return (
         <div className="home-wrapper">
             <WelcomeMessage token={token} />
-            <MapComponent db={db} />
+            <MapComponent token={token} db={db} />
             <Statistics />
         </div>
     );
