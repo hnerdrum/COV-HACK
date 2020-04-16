@@ -14,15 +14,34 @@ const errorSpan = (error) => (
     </div>
 );
 
-const LoginModal = ({ setShowModal, auth, setToken }) => {
+const LoginModal = ({ setShowModal, db, auth, setToken, setCoordinates }) => {
 
   const [error, setError] = useState(false);
+
+  const getCoordinatesFromFirebase = (email) => {
+    const hospitals = db.collection("hospitals");
+    hospitals.where("email", "==", email).get()
+        .then((querySnapshot) => {
+            if(!querySnapshot.empty) {
+                const hospital = querySnapshot.docs[0].data();
+                setShowModal();
+                setCoordinates(hospital.lat, hospital.lng);
+                setToken(auth);
+            }
+            else {
+                setError(true);
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            setError(true);
+        })
+  };
 
   const authenticate = (email, password) => {
     auth.signInWithEmailAndPassword(email, password)
         .then((response) => {
-          setShowModal();
-          setToken(auth);
+          getCoordinatesFromFirebase(email);
         })
         .catch((error) => {
           console.log(error);

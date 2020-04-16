@@ -3,11 +3,11 @@ import LoginModal from './LoginModal';
 import { Button } from 'react-bootstrap';
 import "./common.css";
 
-const Navbar = ({ auth, setToken, token }) => {
+const Navbar = ({ auth, db, setToken, setCoordinates, token }) => {
     const [showModal, setShowModal] = useState(false);
 
     const logout = () => {
-        localStorage.removeItem('token');
+        localStorage.clear();
         window.location.reload();
     };
 
@@ -28,7 +28,7 @@ const Navbar = ({ auth, setToken, token }) => {
         <nav className="navbar sticky-top navbar-light">
           <a className="navbar-brand leftMargin10" href="/"><img src="Logo.png" width="50" height="50" alt=""/>   COVWEB</a>
             {renderLogin(token)}
-          {showModal && <LoginModal setShowModal={setShowModal} auth={auth} setToken={setToken} />}
+          {showModal && <LoginModal setShowModal={setShowModal} auth={auth} db={db} setToken={setToken} setCoordinates={setCoordinates} />}
         </nav>
     );
 };

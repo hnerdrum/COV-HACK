@@ -30,11 +30,33 @@ const MapComponent = ({ db, token }) => {
     }
   };
 
+  const loadZoom = () => {
+    if(localStorage.getItem("lat") !== null && localStorage.getItem("lng") !== null) {
+      return 10;
+    }
+    else {
+      return 5;
+    }
+  };
+
+  const loadCoordinates = () => {
+    if(localStorage.getItem("lat") !== null && localStorage.getItem("lng") !== null) {
+      const lat = parseFloat(localStorage.getItem("lat"));
+      const lng = parseFloat(localStorage.getItem("lng"));
+      return [lat, lng];
+    }
+    else {
+      return center;
+    }
+  };
+
+  const center = [54.070192, -3.869140];
+
   const loadMap = () => {
     if (!mapIsSet){
       const mymap = L.map('mapid', {
-        center: [54.070192, -3.869140],
-        zoom: 5,
+        center: loadCoordinates(),
+        zoom: loadZoom(),
         layers: [
           L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

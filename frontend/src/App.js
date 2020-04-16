@@ -20,6 +20,11 @@ const App = ({ auth, db }) => {
         })
   };
 
+  const setCoordinates = (lat, lng) => {
+    localStorage.setItem('lat', lat);
+    localStorage.setItem('lng', lng);
+  };
+
   const loadLoginState = () => {
     return localStorage.getItem('token');
   };
@@ -29,7 +34,7 @@ const App = ({ auth, db }) => {
   return (
       <BrowserRouter>
         <div>
-          <Navbar auth={auth} token={token} setToken={setToken} />
+          <Navbar auth={auth} db={db} token={token} setToken={setToken} setCoordinates={setCoordinates}/>
           <Switch>
             <Route path="/"
                    render={(props) => <Home {...props} token={token} db={db} />}
