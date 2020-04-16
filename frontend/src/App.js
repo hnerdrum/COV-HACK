@@ -10,6 +10,16 @@ const App = ({ auth, db }) => {
 
   const [showModal, setShowModal] = useState(false);
 
+  const setToken = (auth) => {
+    auth.currentUser.getIdToken(true).then((idToken) => {
+      localStorage.setItem('token', idToken);
+      window.location.assign("/");
+    })
+        .catch((error) => {
+          console.log(error);
+        })
+  };
+
   const loadLoginState = () => {
     return localStorage.getItem('token');
   };
@@ -19,7 +29,7 @@ const App = ({ auth, db }) => {
   return (
       <BrowserRouter>
         <div>
-          <Navbar auth={auth} token={token} />
+          <Navbar auth={auth} token={token} setToken={setToken} />
           <Switch>
             <Route path="/"
                    render={(props) => <Home {...props} token={token} db={db} />}
@@ -27,7 +37,7 @@ const App = ({ auth, db }) => {
             />
             <Route
                 path="/register"
-                render={(props) => <Registration {...props} auth={auth} db={db} showModal={showModal} setShowModal={setShowModal}/>}
+                render={(props) => <Registration {...props} auth={auth} db={db} setToken={setToken} showModal={showModal} setShowModal={setShowModal}/>}
             />
           </Switch>
           <Footer />

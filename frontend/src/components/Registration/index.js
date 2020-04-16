@@ -8,7 +8,7 @@ import * as firebase from "firebase";
 import Geocode from "react-geocode";
 import AlertModal from "../Common/AlertModal";
 
-const Registration = ({ handleSubmit, auth, db, showModal, setShowModal, reset }) => {
+const Registration = ({ handleSubmit, auth, db, setToken, showModal, setShowModal, reset }) => {
 
     const submit = (values) => {
         const { password, passwordRepeat, ...registrationData } = values;
@@ -46,10 +46,9 @@ const Registration = ({ handleSubmit, auth, db, showModal, setShowModal, reset }
 
     const addUserToFireBase = (credentials) => {
         const { email, password } = credentials;
-        firebase.auth().createUserWithEmailAndPassword(email, password)
+        auth.createUserWithEmailAndPassword(email, password)
             .then((response) => {
-                localStorage.setItem('login', true);
-                window.location.assign("/");
+                setToken(auth);
             })
             .catch((error) => {
                 console.log("User registration failed with error: " + error);
