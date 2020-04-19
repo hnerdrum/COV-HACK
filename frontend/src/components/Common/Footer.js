@@ -24,7 +24,7 @@ const Footer = () => {
               <p className="alignCenter">Terms and Conditions</p>
             </div>
             <div className="col-md-2 mb-md-0 mb-2">
-              <p className="alignCenter">Information covid-19</p>
+              <p className="alignCenter">Information Covid-19</p>
             </div>
           </div>
         </div>
