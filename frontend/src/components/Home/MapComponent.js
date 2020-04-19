@@ -124,10 +124,14 @@ const MapComponent = ({ db, token }) => {
     })
   };
 
+  const completeTransaction = () => {
+    window.location.assign("/transaction");
+  };
+
   const renderTransactionButton = () => {
-    if(token) {
+    if(token || true) {
       return (
-          <Button>Complete recommended transaction</Button>
+          <Button onClick={completeTransaction}>Complete transaction</Button>
       )
     }
   };

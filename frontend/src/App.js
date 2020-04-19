@@ -5,6 +5,7 @@ import Footer from './components/Common/Footer';
 import Navbar from './components/Common/Navbar';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Registration from "./components/Registration";
+import Transaction from "./components/Transaction";
 
 const App = ({ auth, db }) => {
 
@@ -43,6 +44,10 @@ const App = ({ auth, db }) => {
             <Route
                 path="/register"
                 render={(props) => <Registration {...props} auth={auth} db={db} setToken={setToken} showModal={showModal} setShowModal={setShowModal}/>}
+            />
+            <Route
+                path="/transaction"
+                render={(props) => <Transaction />}
             />
           </Switch>
           <Footer />
