@@ -3,7 +3,6 @@ import styles from './Transaction.module.css';
 import {Button} from "react-bootstrap";
 import TransactionItem from "./TransactionItem";
 import AlertModal from "../Common/AlertModal";
-import {get} from "leaflet/src/dom/DomUtil";
 
 const Transaction = ({ db }) => {
 
@@ -22,9 +21,8 @@ const Transaction = ({ db }) => {
      getStaticHospitalData()
   });
 
-  const email = "brad@pitt.com";
-
   const getStaticHospitalData = () => {
+      const email = "brad@pitt.com";
       const hospitals = db.collection("hospitals");
       hospitals.where("email", "==", email).get()
           .then((querySnapshot) => {

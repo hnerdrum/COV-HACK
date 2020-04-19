@@ -8,7 +8,6 @@ const Home = ({ token, db }) => {
         <div className="home-wrapper">
             <WelcomeMessage token={token} />
             <MapComponent token={token} db={db} />
-            <Statistics />
         </div>
     );
 };
