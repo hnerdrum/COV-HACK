@@ -15,7 +15,7 @@ const MapComponent = ({ db, token }) => {
   useEffect(() => {
     loadData(db)
     loadMap()
-  }, [dataIsLoaded, filter])
+  }, [dataIsLoaded, filter]);
 
   const loadData = () => {
     if(!dataIsLoaded){

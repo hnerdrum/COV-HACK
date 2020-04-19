@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Transaction.module.css';
 import {Button} from "react-bootstrap";
 import TransactionItem from "./TransactionItem";
 import AlertModal from "../Common/AlertModal";
+import {get} from "leaflet/src/dom/DomUtil";
 
-const Transaction = () => {
+const Transaction = ({ db }) => {
 
   const [showModal, setShowModal] = useState(false);
+  const [data, setData] = useState({});
 
   const send = () => {
     setShowModal(true);
@@ -16,11 +18,30 @@ const Transaction = () => {
       window.location.assign("/");
   };
 
+  useEffect(() => {
+     getStaticHospitalData()
+  });
+
+  const email = "brad@pitt.com";
+
+  const getStaticHospitalData = () => {
+      const hospitals = db.collection("hospitals");
+      hospitals.where("email", "==", email).get()
+          .then((querySnapshot) => {
+              if(!querySnapshot.empty) {
+                  setData(querySnapshot.docs[0].data());
+              }
+          })
+          .catch((error) => {
+              console.log(error);
+          })
+  };
+
   return (
       <div className={styles.container}>
         <h2 className={styles.title}>Recommended transaction</h2>
         <div className={styles.content}>
-            <h4>Transaction Destination: The Royal Liverpool University Hospital</h4>
+            <h4>Transaction Destination: {data.hospitalName || ""}</h4>
             <div className={styles.headlines}>
                 <div className={styles.headline}><p>Item</p></div>
                 <div className={styles.headline}><p>Grade</p></div>
@@ -28,9 +49,9 @@ const Transaction = () => {
                 <div className={styles.headline}><p>Quantity</p></div>
             </div>
             <div className={styles.itemContainer}>
-                <TransactionItem item="Face Mask" grade="A" part="-" quantity="100"/>
-                <TransactionItem item="Contamination Gown" grade="C" part="-" quantity="400"/>
-                <TransactionItem item="Gloves" grade="B" part="-" quantity="200"/>
+                {data.equipment && data.equipment.map((e, index) => {
+                   return <TransactionItem key={index} equipment={e}/>
+                })}
             </div>
         </div>
           <div className={styles.buttonContainer}>

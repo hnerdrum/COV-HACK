@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './TransactionItem.module.css';
 
-const TransactionItem = ({ item, grade, part, quantity }) => {
+const TransactionItem = ({ equipment }) => {
     return (
         <div className={styles.container}>
-            <div className={styles.category}><h6>{item}</h6></div>
-            <div className={styles.category}><h6>{grade}</h6></div>
-            <div className={styles.category}><h6>{part}</h6></div>
-            <div className={styles.category}><h6>{quantity}</h6></div>
+            <div className={styles.category}><h6>{equipment.category || ""}</h6></div>
+            <div className={styles.category}><h6>{equipment.grade || ""}</h6></div>
+            <div className={styles.category}><h6>{equipment.part || ""}</h6></div>
+            <div className={styles.category}><h6>{equipment.inUse || ""}</h6></div>
         </div>
     )
 };

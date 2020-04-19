@@ -47,7 +47,7 @@ const App = ({ auth, db }) => {
             />
             <Route
                 path="/transaction"
-                render={(props) => <Transaction />}
+                render={(props) => <Transaction {...props} db={db} />}
             />
           </Switch>
           <Footer />
