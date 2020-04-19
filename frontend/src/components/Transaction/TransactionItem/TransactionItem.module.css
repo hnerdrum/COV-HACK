@@ -1,0 +1,27 @@
+.container {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid;
+    margin-bottom: 3%;
+}
+
+p {
+    margin-bottom: 0 !important;
+}
+
+.category {
+    display: flex;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 25%;
+    margin-right: 6%;
+}
+
+.category h6 {
+    margin-left: 5%;
+    margin-bottom: 0;
+}
