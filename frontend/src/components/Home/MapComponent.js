@@ -131,7 +131,7 @@ const MapComponent = ({ db, token }) => {
   const renderTransactionButton = () => {
     if(token || true) {
       return (
-          <Button onClick={completeTransaction}>Complete transaction</Button>
+          <Button onClick={completeTransaction}>Send transaction</Button>
       )
     }
   };
