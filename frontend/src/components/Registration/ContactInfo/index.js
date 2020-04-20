@@ -4,6 +4,11 @@ import { Field } from 'redux-form';
 import TextField from "../TextField";
 
 const required = value => value ? undefined : 'Required';
+const number = value =>
+     value && isNaN(Number(value)) ? 'Must be a valid phone number.' : undefined;
+
+const numberLength = value => value.length >= 8 ? undefined : 'Phone number is too short.';
+
 const email = value =>
     value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
         'Invalid email address.' : undefined;
@@ -60,7 +65,7 @@ const ContactInfo = () => {
                    label="Phone number of contact person"
                    component={TextField}
                    placeholder="Phone Number"
-                   validate={required}
+                   validate={[required, number, numberLength]}
             />
             <Field name="password"
                    type="password"
