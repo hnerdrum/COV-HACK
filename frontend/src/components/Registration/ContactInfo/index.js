@@ -3,9 +3,9 @@ import styles from "./ContactInfo.module.css";
 import { Field } from 'redux-form';
 import TextField from "../TextField";
 
-const required = value => value ? undefined : 'Required';
+const required = value => value ? undefined : 'Required.';
 const number = value =>
-     value && isNaN(Number(value)) ? 'Must be a valid phone number.' : undefined;
+     value && isNaN(Number(value)) ? 'Must be a number.' : undefined;
 
 const numberLength = value => value.length >= 5 ? undefined : 'Phone number is too short.';
 
@@ -37,6 +37,20 @@ const ContactInfo = () => {
                    label="Hospital Address"
                    component={TextField}
                    placeholder="Address"
+                   validate={required}
+                   type="text"
+            />
+            <Field name="postcode"
+                   label="Postcode"
+                   component={TextField}
+                   placeholder="Postcode"
+                   validate={[required, number]}
+                   type="text"
+            />
+            <Field name="posttown"
+                   label="Post Town"
+                   component={TextField}
+                   placeholder="Post Town"
                    validate={required}
                    type="text"
             />

@@ -25,7 +25,8 @@ const Registration = ({ handleSubmit, auth, db, setToken, showModal, setShowModa
     const validateEmail = (authData, registrationData) => {
         auth.fetchSignInMethodsForEmail(authData.email).then((response) => {
             if(response === undefined || response.length === 0) {
-                getLocationAndRegisterData(registrationData.hospitalAddress, registrationData);
+                const data = fixAddress(registrationData);
+                getLocationAndRegisterData(data.hospitalAddress, data);
                 addUserToFireBase(authData);
             }
             else {
@@ -67,6 +68,14 @@ const Registration = ({ handleSubmit, auth, db, setToken, showModal, setShowModa
                 console.error(error);
             }
         );
+    };
+
+    const fixAddress = (data) => {
+        data.hospitalAddress = data.hospitalAddress + " " + data.posttown + " " + data.postcode;
+        delete data.posttown;
+        delete data.postcode;
+
+        return data;
     };
 
     return (

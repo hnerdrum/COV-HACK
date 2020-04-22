@@ -29,7 +29,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-copyright text-center py-3">© 2020 Copyright:
-          <p>COVWEB</p>
+          <p>RESDROP</p>
         </div>
       </footer>
     );
