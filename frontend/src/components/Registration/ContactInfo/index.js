@@ -7,7 +7,7 @@ const required = value => value ? undefined : 'Required';
 const number = value =>
      value && isNaN(Number(value)) ? 'Must be a valid phone number.' : undefined;
 
-const numberLength = value => value.length >= 8 ? undefined : 'Phone number is too short.';
+const numberLength = value => value.length >= 5 ? undefined : 'Phone number is too short.';
 
 const email = value =>
     value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
