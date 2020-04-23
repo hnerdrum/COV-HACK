@@ -26,8 +26,8 @@ const Registration = ({ handleSubmit, auth, db, setToken, showModal, setShowModa
         auth.fetchSignInMethodsForEmail(authData.email).then((response) => {
             if(response === undefined || response.length === 0) {
                 const data = fixAddress(registrationData);
-                getLocationAndRegisterData(data.hospitalAddress, data);
                 addUserToFireBase(authData);
+                getLocationAndRegisterData(data.hospitalAddress, data);
             }
             else {
                 setShowModal(true);
