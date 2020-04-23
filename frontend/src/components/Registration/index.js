@@ -23,11 +23,10 @@ const Registration = ({ handleSubmit, auth, db, setToken, showModal, setShowModa
     };
 
     const validateEmail = (authData, registrationData) => {
+        const data = fixAddress(registrationData);
         auth.fetchSignInMethodsForEmail(authData.email).then((response) => {
             if(response === undefined || response.length === 0) {
-                const data = fixAddress(registrationData);
-                addUserToFireBase(authData);
-                getLocationAndRegisterData(data.hospitalAddress, data);
+                addUserToFireBase(authData, data);
             }
             else {
                 setShowModal(true);
@@ -45,10 +44,11 @@ const Registration = ({ handleSubmit, auth, db, setToken, showModal, setShowModa
             })
     };
 
-    const addUserToFireBase = (credentials) => {
+    const addUserToFireBase = (credentials, data) => {
         const { email, password } = credentials;
         auth.createUserWithEmailAndPassword(email, password)
             .then((response) => {
+                getLocationAndRegisterData(data.hospitalAddress, data);
                 setToken(auth);
             })
             .catch((error) => {
