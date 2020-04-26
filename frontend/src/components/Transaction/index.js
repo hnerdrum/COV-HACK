@@ -1,13 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
 import styles from './Transaction.module.css';
 import {Button} from "react-bootstrap";
 import TransactionItem from "./TransactionItem";
 import AlertModal from "../Common/AlertModal";
+import {fetchHospital} from "../../actions";
 
 const Transaction = ({ db }) => {
 
   const [showModal, setShowModal] = useState(false);
-  const [data, setData] = useState({});
+  const item = useSelector(state => state.hospital.item);
+  const dispatch = useDispatch();
 
   const send = () => {
     setShowModal(true);
@@ -18,28 +21,20 @@ const Transaction = ({ db }) => {
   };
 
   useEffect(() => {
-     getStaticHospitalData()
-  });
+     getHospital(email)
+  }, []);
 
-  const getStaticHospitalData = () => {
-      const email = "brad@pitt.com";
-      const hospitals = db.collection("hospitals");
-      hospitals.where("email", "==", email).get()
-          .then((querySnapshot) => {
-              if(!querySnapshot.empty) {
-                  setData(querySnapshot.docs[0].data());
-              }
-          })
-          .catch((error) => {
-              console.log(error);
-          })
+  const email = "brad@pitt.com";
+
+  const getHospital = email =>{
+      dispatch(fetchHospital(email));
   };
 
   return (
       <div className={styles.container}>
         <h2 className={styles.title}>Recommended transaction</h2>
         <div className={styles.content}>
-            <h4>Transaction Destination: {data.hospitalName || ""}</h4>
+            <h4>Transaction Destination: {item.hospitalName || ""}</h4>
             <div className={styles.headlines}>
                 <div className={styles.headline}><p>Item</p></div>
                 <div className={styles.headline}><p>Grade</p></div>
@@ -47,7 +42,7 @@ const Transaction = ({ db }) => {
                 <div className={styles.headline}><p>Quantity</p></div>
             </div>
             <div className={styles.itemContainer}>
-                {data.equipment && data.equipment.map((e, index) => {
+                {item.equipment && item.equipment.map((e, index) => {
                    return <TransactionItem key={index} equipment={e}/>
                 })}
             </div>

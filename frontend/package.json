@@ -21,7 +21,8 @@
     "react-scripts": "3.4.1",
     "react-vis": "^1.11.7",
     "react-widgets": "latest",
-    "redux": "latest"
+    "redux": "latest",
+    "redux-thunk": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -52,6 +53,7 @@
     "redux-forms": "latest",
     "react-widgets": "latest",
     "react-bootstrap-dropdown-menu": "latest",
-    "react-geocode": "latest"
+    "react-geocode": "latest",
+    "redux-thunk": "latest"
   }
 }

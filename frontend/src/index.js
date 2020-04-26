@@ -3,15 +3,16 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore, combineReducers } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { reducer as formReducer } from 'redux-form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import Geocode from "react-geocode";
+import { rootReducer } from "./reducers";
+import thunkMiddleware from 'redux-thunk';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDLQv5bl1Pyr4i5qx6EPDk617mNraEBi1g",
@@ -24,18 +25,14 @@ const firebaseConfig = {
     measurementId: "G-1D118NFGGH"
 };
 firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+export const db = firebase.firestore();
 const auth = firebase.auth();
 
 Geocode.setApiKey("AIzaSyAy1ECBsY8rGy4YiaRzbjqdHuIiwA6Lj08");
 
 Geocode.setLanguage("en");
 
-const rootReducer = combineReducers({
-    form: formReducer,
-});
-
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
 ReactDOM.render(
   <React.StrictMode>
