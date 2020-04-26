@@ -3,7 +3,7 @@ import DropdownSimple from '../Common/DropdownSimple';
 import {Button} from 'react-bootstrap';
 import L from 'leaflet';
 
-const MapComponent = ({ db, token }) => {
+const MapComponent = ({ db, token, history }) => {
 
   const [mymapRef, setMap] = useState({});
   const [mapIsSet, setMapIsSet] = useState(false);
@@ -125,7 +125,7 @@ const MapComponent = ({ db, token }) => {
   };
 
   const completeTransaction = () => {
-    window.location.assign("/transaction");
+    history.push("/transaction");
   };
 
   const renderTransactionButton = () => {
