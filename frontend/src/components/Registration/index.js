@@ -8,7 +8,7 @@ import * as firebase from "firebase";
 import Geocode from "react-geocode";
 import AlertModal from "../Common/AlertModal";
 
-const Registration = ({ handleSubmit, auth, db, setToken, showModal, setShowModal, reset }) => {
+const Registration = ({ handleSubmit, auth, db, setToken, setCoordinates, showModal, setShowModal, reset }) => {
 
     const submit = (values) => {
         const { password, passwordRepeat, ...registrationData } = values;
@@ -37,6 +37,7 @@ const Registration = ({ handleSubmit, auth, db, setToken, showModal, setShowModa
     const addRegistrationToFirebase = (registration) => {
         db.collection("hospitals").add(registration)
             .then((docRef) => {
+                setToken(auth);
                 console.log("Document written with ID: " + docRef.id);
             })
             .catch((error) => {
@@ -49,7 +50,6 @@ const Registration = ({ handleSubmit, auth, db, setToken, showModal, setShowModa
         auth.createUserWithEmailAndPassword(email, password)
             .then((response) => {
                 getLocationAndRegisterData(data.hospitalAddress, data);
-                setToken(auth);
             })
             .catch((error) => {
                 console.log("User registration failed with error: " + error);
@@ -62,6 +62,7 @@ const Registration = ({ handleSubmit, auth, db, setToken, showModal, setShowModa
                 const { lat, lng } = response.results[0].geometry.location;
                 data.lat = lat;
                 data.lng = lng;
+                setCoordinates(lat, lng);
                 addRegistrationToFirebase(data);
             },
             error => {

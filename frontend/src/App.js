@@ -43,7 +43,7 @@ const App = ({ auth, db }) => {
             />
             <Route
                 path="/register"
-                render={(props) => <Registration {...props} auth={auth} db={db} setToken={setToken} showModal={showModal} setShowModal={setShowModal}/>}
+                render={(props) => <Registration {...props} auth={auth} db={db} setToken={setToken} setCoordinates={setCoordinates} showModal={showModal} setShowModal={setShowModal}/>}
             />
             <Route
                 path="/transaction"
