@@ -10,7 +10,7 @@ import AlertModal from "../Common/AlertModal";
 
 const Registration = ({ handleSubmit, auth, db, setToken, setCoordinates, showModal, setShowModal, reset }) => {
 
-    const submit = (values) => {
+    const submit = async (values) => {
         const { password, passwordRepeat, ...registrationData } = values;
         registrationData.createdAt = firebase.firestore.FieldValue.serverTimestamp();
 
@@ -19,56 +19,19 @@ const Registration = ({ handleSubmit, auth, db, setToken, setCoordinates, showMo
             password
         };
 
-       validateEmail(authData, registrationData);
-    };
+       const data = fixAddress(registrationData);
 
-    const validateEmail = (authData, registrationData) => {
-        const data = fixAddress(registrationData);
-        auth.fetchSignInMethodsForEmail(authData.email).then((response) => {
-            if(response === undefined || response.length === 0) {
-                addUserToFireBase(authData, data);
-            }
-            else {
-                setShowModal(true);
-            }
-        })
-    };
-
-    const addRegistrationToFirebase = (registration) => {
-        db.collection("hospitals").add(registration)
-            .then((docRef) => {
-                setToken(auth);
-                console.log("Document written with ID: " + docRef.id);
-            })
-            .catch((error) => {
-                console.error("Error adding document: " + error);
-            })
-    };
-
-    const addUserToFireBase = (credentials, data) => {
-        const { email, password } = credentials;
-        auth.createUserWithEmailAndPassword(email, password)
-            .then((response) => {
-                getLocationAndRegisterData(data.hospitalAddress, data);
-            })
-            .catch((error) => {
-                console.log("User registration failed with error: " + error);
-            });
-    };
-
-    const getLocationAndRegisterData = (address, data) => {
-        Geocode.fromAddress(address).then(
-            response => {
-                const { lat, lng } = response.results[0].geometry.location;
-                data.lat = lat;
-                data.lng = lng;
-                setCoordinates(lat, lng);
-                addRegistrationToFirebase(data);
-            },
-            error => {
-                console.error(error);
-            }
-        );
+       const emailResponse = await validateEmail(authData);
+       if(emailResponse === undefined || emailResponse.length === 0) {
+           await addUserToFireBase(authData);
+           const addressResponse = await getLocationAndRegisterData(data.hospitalAddress);
+           coordinates(addressResponse, data);
+           await addRegistrationToFirebase(data);
+           setToken(auth);
+       }
+       else {
+           setShowModal(true);
+       }
     };
 
     const fixAddress = (data) => {
@@ -77,6 +40,32 @@ const Registration = ({ handleSubmit, auth, db, setToken, setCoordinates, showMo
         delete data.postcode;
 
         return data;
+    };
+
+    const coordinates = (response, data) => {
+        const { lat, lng } = response.results[0].geometry.location;
+        data.lat = lat;
+        data.lng = lng;
+        setCoordinates(lat, lng);
+    };
+
+    const validateEmail = async (authData) => {
+        auth.fetchSignInMethodsForEmail(authData.email).then((response) => {
+            return response;
+        })
+    };
+
+    const addUserToFireBase = async (credentials) => {
+        const { email, password } = credentials;
+        return auth.createUserWithEmailAndPassword(email, password);
+    };
+
+    const getLocationAndRegisterData = async (address) => {
+        return Geocode.fromAddress(address);
+    };
+
+    const addRegistrationToFirebase = async (registration) => {
+        return db.collection("hospitals").add(registration);
     };
 
     return (
