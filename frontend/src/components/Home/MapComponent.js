@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import DropdownSimple from '../Common/DropdownSimple';
 import {Button} from 'react-bootstrap';
 import L from 'leaflet';
+import MarkerExplanation from "./MarkerExplanation";
 
 const MapComponent = ({ db, token, history }) => {
 
@@ -142,7 +143,8 @@ const MapComponent = ({ db, token, history }) => {
       <div className="side-bar-map">
         <DropdownSimple  filter = { setFilter }/>
         <div>
-          <div className="img-container"><img height="130px" width="200px" src="rog.png" alt=""/></div>
+          {/*<div className="img-container"><img height="130px" width="200px" src="rog.png" alt=""/></div>*/}
+          <MarkerExplanation/>
         </div>
         <div>
           { renderTransactionButton() }
