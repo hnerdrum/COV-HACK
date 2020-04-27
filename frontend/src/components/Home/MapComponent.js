@@ -111,7 +111,7 @@ const MapComponent = ({ db, token, history }) => {
         const available = x.available || "";
         const inuse = x.inUse || "";
         const reserved = x.reserved || "";
-        inventoryInfo = inventoryInfo + category + "<br>" + "Available: " + available + "<br>" + "In use: " + inuse +"<br>"+ "Reserved: " + reserved +"<br><br>";
+        inventoryInfo = inventoryInfo + "<b>" + category + "</b>" + "<br>" + "<b>" + "Available: " + "</b>" + available + "<br>" + "<b>" + "In use: " + "</b>" + inuse +"<br>"+ "<b>" + "Reserved: " + "</b>" + reserved +"<br><br>";
       });
 
       const oldMarker = getMarkerFromCoordinates(h.lat, h.lng);
