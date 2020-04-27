@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from "./Registration.module.css";
 import ContactInfo from "./ContactInfo";
 import Inventory from "./Inventory";
@@ -9,6 +9,8 @@ import Geocode from "react-geocode";
 import AlertModal from "../Common/AlertModal";
 
 const Registration = ({ handleSubmit, auth, db, setToken, setCoordinates, showModal, setShowModal, reset }) => {
+
+    const [regError, setRegError] = useState(false);
 
     const submit = async (values) => {
         const { password, passwordRepeat, ...registrationData } = values;
@@ -23,11 +25,17 @@ const Registration = ({ handleSubmit, auth, db, setToken, setCoordinates, showMo
 
        const emailResponse = await validateEmail(authData);
        if(emailResponse === undefined || emailResponse.length === 0) {
-           await addUserToFireBase(authData);
-           const addressResponse = await getLocationAndRegisterData(data.hospitalAddress);
-           coordinates(addressResponse, data);
-           await addRegistrationToFirebase(data);
-           setToken(auth);
+           try {
+               await addUserToFireBase(authData);
+               const addressResponse = await getLocationAndRegisterData(data.hospitalAddress);
+               coordinates(addressResponse, data);
+               await addRegistrationToFirebase(data);
+               setToken(auth);
+           }
+           catch(e) {
+               console.log(e);
+               setRegError(true);
+           }
        }
        else {
            setShowModal(true);
@@ -86,6 +94,7 @@ const Registration = ({ handleSubmit, auth, db, setToken, setCoordinates, showMo
                 </div>
             </form>
             {showModal ? <AlertModal setShowModal={setShowModal} text="Email is already taken. Please try again."/> : null}
+            {regError ? <AlertModal setShowModal={setRegError} text="An error has occurred. Please try again."/> : null}}
         </div>
     );
 };
