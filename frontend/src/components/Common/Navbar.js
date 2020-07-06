@@ -14,18 +14,21 @@ const Navbar = ({ auth, db, setToken, setCoordinates, token }) => {
     const renderLogin = (token) => {
         if(!token) {
             return (
-                <button type="button" className="btn rightMargin10 login-button" onClick={() => setShowModal(!showModal)}>LOGIN</button>
+                <button type="button" className="btn rightMargin10 login-button" onClick={() => setShowModal(!showModal)}>Login</button>
             )
         }
         else {
             return (
-                <Button type="button" className="btn rightMargin10" id="logout" onClick={() => logout()}>LOGOUT</Button>
+                <div className="navbar-button-wrapper">
+                    <Button type="button" className="btn btn-success rightMargin10" id="logout2" onClick={() => logout()}>Advertise scrap</Button>
+                    <Button type="button" className="btn rightMargin10" id="logout" onClick={() => logout()}>Logout</Button>
+                </div>
             )
         }
     };
 
     return (
-        <nav className="navbar sticky-top navbar-light">
+        <nav className="navbar navbar-light">
           <a className="navbar-brand leftMargin10" href="/"><img src="Logo.png" width="50" height="50" alt=""/>   RESDROP</a>
             {renderLogin(token)}
           {showModal && <LoginModal setShowModal={setShowModal} auth={auth} db={db} setToken={setToken} setCoordinates={setCoordinates} />}

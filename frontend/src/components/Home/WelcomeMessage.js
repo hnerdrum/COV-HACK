@@ -27,12 +27,13 @@ const WelcomeMessage = ({ token }) => {
       <div className="welcome-wrapper">
         <div className="inner-wrapper">
           <div className="announcement">
-            <h3 className="announcement-text alignCenter white">Helping to connect hospitals in need of immediate critical resources to help fight COVID-19</h3>
+            <h1 className="announcement-text alignCenter white">Find avaiblable scrap metal</h1>
+            <h3 className="announcement-text alignCenter white">In your vicinity, quick and easy</h3>
           </div>
-          {renderWelcome(token)}
         </div>
-        <div className="binding-text">
-          <h4>Critical resources in the UK</h4>
+        <div className="form-group">
+            <input className="search-scrap" type="text" placeholder="Search for the scrap you want"></input>
+            <span class="search-icon fa fa-search fa-lg"></span>
         </div>
       </div>
   )

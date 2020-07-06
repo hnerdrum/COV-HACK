@@ -63,7 +63,7 @@
 .announcement {
   margin: auto;
   width: 80%;
-  margin-top: 2rem;
+  margin-top: 10rem;
 }
 
 .registration-wrapper {
@@ -160,8 +160,10 @@
 
 .welcome-wrapper {
   display: grid;
+  height: 35rem;
   width: 100%;
-  background-image: url('header.png');
+  background-size: 100% auto;
+  background-image: url('header.jpg');
 }
 
 .plot3inner {
@@ -189,8 +191,7 @@
 }
 
 .inner-wrapper {
-  background-color: rgb(74,174,233, .7);
-  margin: 4rem 10rem 4rem 10rem;
+  margin: 4rem 10rem 0rem 10rem;
   border-radius: 5px;
 }
 
@@ -200,6 +201,50 @@
 }
 
 .navbar {
-  background-color: rgb(70, 83, 103, .8);
+  background-color: transparent;
   opacity: 1;
+  position: absolute !important;
+  width: 100%;
+}
+
+.navbar-button-wrapper {
+  display: flex;
+  width: 18rem;
+}
+
+.search-scrap {
+  margin: auto;
+  margin-top: -5rem;
+  border: none;
+  height: 4rem;
+  width: 30rem;
+  border-radius: .3rem;
+  padding-left: 1rem;
+}
+
+.search-icon {
+  margin-left: -2rem;
+}
+
+.section-top-border {
+  border-top: .6rem solid rgb(121, 56, 128);
+}
+
+.marginTop15 {
+  margin-top: 1.5rem
+}
+
+.shallow {
+  font-weight: 200;
+}
+
+.popularCategory {
+  margin-left: .5rem;
+  margin-top: .5rem;
+  padding: .4rem;
+  width: auto;
+  height: 2.5rem;
+  display: inline-block;
+  border-radius: .8rem;
+  border: 1px solid rgb(121, 56, 128);
 }

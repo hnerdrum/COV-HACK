@@ -13,6 +13,7 @@ import "firebase/firestore";
 import Geocode from "react-geocode";
 import { rootReducer } from "./reducers";
 import thunkMiddleware from 'redux-thunk';
+import 'font-awesome/css/font-awesome.min.css'
 
 const firebaseConfig = {
     apiKey: "AIzaSyDLQv5bl1Pyr4i5qx6EPDk617mNraEBi1g",
