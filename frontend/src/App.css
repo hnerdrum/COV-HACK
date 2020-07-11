@@ -86,7 +86,7 @@
 }
 
 .navfootColor {
-  background-color: rgb(70, 83, 103);
+  background-image: url('footer-bg.png');
 }
 
 .login-button {
