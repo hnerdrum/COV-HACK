@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 30%;
+    height: 300px;
+    background-color: white;
+    box-shadow: 0 3px 6px 0 #E8E8E8, 0 6px 20px 0 #E8E8E8;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.image {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.textContainer {
+    padding: 7px;
+}
+
+.title {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 0.8em;
+}
+
+.position {
+    margin-left: 80%;
+}

@@ -1,9 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const WelcomeMessage = ({ token }) => {
+const WelcomeMessage = ({ token, history }) => {
+
+  const [query, setQuery] = useState("");
 
   const clickRegister = () => {
     window.location.assign( "/register");
+  };
+
+  const search = () => {
+      history.push({
+          pathname: "/search",
+          state: {
+              query: query
+          }});
+  };
+
+  const handleChange = (event) => {
+      setQuery(event.target.value)
   };
 
   const renderWelcome = (token) => {
@@ -32,8 +46,8 @@ const WelcomeMessage = ({ token }) => {
           </div>
         </div>
         <div className="form-group">
-            <input className="search-scrap" type="text" placeholder="Search for the scrap you want"></input>
-            <span class="search-icon fa fa-search fa-lg"></span>
+            <input className="search-scrap" type="text" placeholder="Search for the scrap you want" onChange={handleChange}/>
+            <span className="search-icon fa fa-search fa-lg" onClick={search}/>
         </div>
       </div>
   )

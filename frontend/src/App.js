@@ -6,6 +6,8 @@ import Navbar from './components/Common/Navbar';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Registration from "./components/Registration";
 import Transaction from "./components/Transaction";
+import SearchResults from "./components/SearchResults";
+import {useHistory} from "react-router-dom";
 
 const App = ({ auth, db }) => {
 
@@ -48,6 +50,10 @@ const App = ({ auth, db }) => {
             <Route
                 path="/transaction"
                 render={(props) => <Transaction {...props} db={db} />}
+            />
+            <Route
+                path="/search"
+                render={(props) => <SearchResults {...props} />}
             />
           </Switch>
           <Footer />

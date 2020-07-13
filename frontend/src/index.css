@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.search-icon {
+  cursor: pointer;
+}
+
+.navbar {
+  top: 0;
+  height: 75px;
+}
