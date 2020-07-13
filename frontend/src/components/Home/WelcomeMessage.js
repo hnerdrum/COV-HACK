@@ -20,6 +20,12 @@ const WelcomeMessage = ({ token, history }) => {
       setQuery(event.target.value)
   };
 
+  const handleKeyDown = (event) => {
+    if(event.key === 'Enter') {
+        search();
+    }
+  };
+
   const renderWelcome = (token) => {
       if(!token) {
           return (
@@ -46,11 +52,11 @@ const WelcomeMessage = ({ token, history }) => {
           </div>
         </div>
         <div className="form-group">
-            <input className="search-scrap" type="text" placeholder="Search for the scrap you want" onChange={handleChange}/>
+            <input className="search-scrap" type="text" placeholder="Search for the scrap you want" onChange={handleChange} onKeyDown={handleKeyDown} />
             <span className="search-icon fa fa-search fa-lg" onClick={search}/>
         </div>
       </div>
   )
-}
+};
 
 export default WelcomeMessage;

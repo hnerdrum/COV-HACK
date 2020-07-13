@@ -128,10 +128,7 @@
 }
 
 .plot-wrapper {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 3rem auto;
   display: block;
   width: 90%;
 }
