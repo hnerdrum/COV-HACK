@@ -1,4 +1,4 @@
-import React, { useEffect } from  'react';
+import React from  'react';
 import {XYPlot, LineSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis, DiscreteColorLegend, MarkSeries} from 'react-vis';
 import '../../../node_modules/react-vis/dist/style.css';
 

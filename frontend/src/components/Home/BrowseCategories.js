@@ -14,25 +14,25 @@ const BrowseCategories = () => {
     ];
 
 
-    const categroiesToShow = 
+    const categoriesToShow =
     <div>
-        {allCategories.map(x => {
+        {allCategories.map((x, i) => {
         return (
-            <div className="popularCategory">
+            <div key={i} className="popularCategory">
                 <h5 className="shallow">{x}</h5>
             </div>
         )
     })}
-    </div>
+    </div>;
 
   return (
     <div className="section-top-border">
         <div className="container marginTop15">
-            <h3 className="shallow">Or browse through our most popular categroies...</h3>
-            {categroiesToShow}
+            <h3 className="shallow">Or browse through our most popular categories...</h3>
+            {categoriesToShow}
         </div>
     </div>
   )
-}
+};
 
 export default BrowseCategories;

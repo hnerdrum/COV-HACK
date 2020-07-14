@@ -3,6 +3,9 @@ import { db } from './index.js';
 export const REQUEST_HOSPITAL = "REQUEST_HOSPITAL";
 export const RECEIVE_HOSPITAL = "RECEIVE_HOSPITAL";
 
+export const REQUEST_DOCUMENTS = "REQUEST_DOCUMENTS";
+export const RECEIVE_DOCUMENTS = "RECEIVE_DOCUMENTS";
+
 const requestHospital = (email) => {
     return {
         type: REQUEST_HOSPITAL,
@@ -29,3 +32,33 @@ export const fetchHospital = (email) => {
           })
   }
 };
+
+const requestDocuments = (query) => {
+    return {
+        type: REQUEST_DOCUMENTS,
+        query
+    }
+};
+
+const receiveDocuments = (query, documents) => {
+    return {
+        type: RECEIVE_DOCUMENTS,
+        documents
+    }
+};
+
+export const fetchDocuments = (query) => {
+    return dispatch => {
+        dispatch(requestDocuments(query));
+        const documents = db.collection("scrapmetal");
+        return documents.where("title", "array-contains", query).get()
+            .then((querySnapshot) => {
+                if(!querySnapshot.empty) {
+                    let documents = [];
+                    querySnapshot.forEach(doc => {documents.push(doc.data())});
+                    dispatch(receiveDocuments(query, documents));
+                }
+            })
+    }
+};
+

@@ -34,6 +34,7 @@ const App = ({ auth, db }) => {
 
   const token = loadLoginState();
 
+
   return (
       <BrowserRouter>
         <div>

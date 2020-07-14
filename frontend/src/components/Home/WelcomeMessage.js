@@ -1,19 +1,24 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {fetchDocuments} from "../../actions";
+import {useDispatch, useSelector} from "react-redux";
 
 const WelcomeMessage = ({ token, history }) => {
 
   const [query, setQuery] = useState("");
+
+    const dispatch = useDispatch();
+
+    /*useEffect(() => {
+        dispatch(fetchDocuments(query))
+    }, []);*/
 
   const clickRegister = () => {
     window.location.assign( "/register");
   };
 
   const search = () => {
-      history.push({
-          pathname: "/search",
-          state: {
-              query: query
-          }});
+      dispatch(fetchDocuments(query));
+      history.push("/search");
   };
 
   const handleChange = (event) => {

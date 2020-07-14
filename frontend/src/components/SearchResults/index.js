@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from "./SearchResults.module.css"
 import SearchItem from "./SearchItem";
+import {useHistory} from "react-router-dom";
+import SearchBar from "./SearchBar";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchDocuments, fetchHospital} from "../../actions";
 
-const SearchResults = ({ history }) => {
+const SearchResults = ({ }) => {
 
-  const data = [
+    const history = useHistory();
+    const documents = useSelector(state => state.documents.items);
+
+    const data = [
       {
           title: "300 tonnes of grade A steel",
           position: "5 miles away",
@@ -27,9 +34,14 @@ const SearchResults = ({ history }) => {
 
   return (
       <div className={styles.container}>
-          {data.map((item) => (
-              <SearchItem title={item.title} price={item.price} position={item.position} src={item.image} />
-          ))}
+          <div className={styles.bar}>
+              <SearchBar history={history} className={styles.bar}/>
+          </div>
+          <div className={styles.inner}>
+              {documents && documents.map((item, i) => (
+                  <SearchItem key={i} title={item.title.join(' ')} price={item.price} position={item.location} src={item.image} />
+              ))}
+          </div>
       </div>
   )
 };

@@ -210,8 +210,7 @@
 }
 
 .search-scrap {
-  margin: auto;
-  margin-top: -5rem;
+  margin: -5rem auto auto;
   border: none;
   height: 4rem;
   width: 30rem;
