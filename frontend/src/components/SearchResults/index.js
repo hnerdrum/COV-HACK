@@ -34,6 +34,8 @@ const SearchResults = ({ }) => {
       }
   ];
 
+  console.log(documents);
+
   const renderResults = () => {
       if(isFetching) {
           return (
@@ -57,7 +59,7 @@ const SearchResults = ({ }) => {
                   </div>
                   <div className={styles.inner}>
                       {documents && documents.map((item, i) => (
-                          <SearchItem key={i} title={item.title.join(' ')} price={item.price} position={item.location} src={item.image} />
+                          <SearchItem key={i} title={item.title.join(' ')} weight={item.weight} position={item.location} src={item.image} />
                       ))}
                   </div>
               </div>
