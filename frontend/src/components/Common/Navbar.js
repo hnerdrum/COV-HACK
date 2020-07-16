@@ -21,9 +21,15 @@ const Navbar = ({ auth, db, setToken, setCoordinates, token }) => {
 
     const renderLogin = (token) => {
         if(!token) {
-            return (
-                <button type="button" className="btn rightMargin10 login-button" onClick={() => setShowModal(!showModal)}>Login</button>
-            )
+            if (currLoc == "/") {
+                return (
+                    <button type="button" className="btn rightMargin10" id="login-button" onClick={() => setShowModal(!showModal)}>Login</button>
+                )
+            } else {
+                return (
+                    <button type="button" className="btn rightMargin10" id="login-button-dark" onClick={() => setShowModal(!showModal)}>Login</button>
+                )
+            }
         }
         else {
             if (currLoc !== "/"){

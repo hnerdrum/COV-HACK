@@ -89,10 +89,18 @@
   background-image: url('footer-bg.png');
 }
 
-.login-button {
+#login-button {
   color: white !important;
   width: 5rem !important;
   border: 2px solid white !important;
+  background: none !important;
+  border-radius: 5px !important;
+}
+
+#login-button-dark {
+  color: black !important;
+  width: 5rem !important;
+  border: 2px solid black !important;
   background: none !important;
   border-radius: 5px !important;
 }
