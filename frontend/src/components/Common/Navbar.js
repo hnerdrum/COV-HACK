@@ -43,6 +43,7 @@ const Navbar = ({ auth, db, setToken, setCoordinates, token }) => {
             }
         }
     };
+
     if (currLoc !== "/") {
         return (
             <nav className="navbar dark navbar-light">

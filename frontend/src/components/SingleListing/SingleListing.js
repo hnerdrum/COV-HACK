@@ -53,7 +53,7 @@ const SingleListing = ({db}) => {
                                 <b><span className="fa fa-clock-o"></span>  Normally replies in 15 minutes</b>
                                 <b><span className="fa fa-commenting-o"></span>  98% reply frequency</b>
                                 <b><span className="fa fa-map-marker"></span>  {listing.location} away</b>
-                                <b><span className="fa fa-check"></span>  Can deliver</b>
+                                <b><span className="fa fa-check"></span>  Delivery available</b>
                             </div>
                             <div className={styles.buttonwrapper}>
                                 <button className={"btn btn-success " + styles.button}>Send offer</button>
