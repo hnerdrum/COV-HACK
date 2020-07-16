@@ -29,7 +29,7 @@ const Navbar = ({ auth, db, setToken, setCoordinates, token }) => {
 
     return (
         <nav className="navbar navbar-light">
-          <a className="navbar-brand leftMargin10" href="/"><img src="Logo.png" width="50" height="50" alt=""/>   RESDROP</a>
+          <a className="navbar-brand leftMargin10" href="/"><img src="Logo.png" width="50" height="50" alt=""/>   Scrappr</a>
             {renderLogin(token)}
           {showModal && <LoginModal setShowModal={setShowModal} auth={auth} db={db} setToken={setToken} setCoordinates={setCoordinates} />}
         </nav>
