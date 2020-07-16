@@ -75,11 +75,11 @@
 }
 
 .bg-blue {
-  color: white;
+  color: black;
   bottom: 0px;
   width: 100%;
   margin-top: 2rem;
-  margin-bottom: auto;
+  bottom: 0px;
   margin-left: auto;
   margin-right: auto;
   z-index: 1000;
@@ -194,7 +194,11 @@
 
 
 .navbar-brand {
-  color: white !important;
+  color: black !important;
+}
+
+.dark {
+  color: black !important;
 }
 
 .navbar {
@@ -243,4 +247,8 @@
   display: inline-block;
   border-radius: .8rem;
   border: 1px solid rgb(121, 56, 128);
+}
+
+.company_name {
+  color: white;
 }

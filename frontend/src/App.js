@@ -5,6 +5,7 @@ import Footer from './components/Common/Footer';
 import Navbar from './components/Common/Navbar';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Registration from "./components/Registration";
+import SingleListing from "./components/SingleListing/SingleListing";
 import Transaction from "./components/Transaction";
 import SearchResults from "./components/SearchResults";
 import {useHistory} from "react-router-dom";
@@ -55,6 +56,10 @@ const App = ({ auth, db }) => {
             <Route
                 path="/search"
                 render={(props) => <SearchResults {...props} />}
+            />
+            <Route
+              path="/listing"
+              render={(props) => <SingleListing {...props} db={db} />}
             />
           </Switch>
           <Footer />

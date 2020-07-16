@@ -22,6 +22,7 @@ const hospital = (state = { isFetching: false, email: "", item: {} }, action) =>
 };
 
 const documents = (state = { isFetching: false, query: "", items: [] }, action) => {
+    console.log(action.type)
     switch(action.type) {
         case REQUEST_DOCUMENTS:
             return {

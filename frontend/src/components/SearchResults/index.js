@@ -31,7 +31,13 @@ const SearchResults = ({ }) => {
           position: "17 miles away",
           image: "steel.jpeg",
           price: "700 £ / tonne"
-      }
+      },
+      {
+        title: "1000 tonnes of grade A steel",
+        position: "15 miles away",
+        image: "steel.jpeg",
+        price: "7001 £ / tonne"
+    }
   ];
 
   console.log(documents);
@@ -59,7 +65,7 @@ const SearchResults = ({ }) => {
                   </div>
                   <div className={styles.inner}>
                       {documents && documents.map((item, i) => (
-                          <SearchItem key={i} title={item.title.join(' ')} weight={item.weight} position={item.location} src={item.image} />
+                          <SearchItem key={i} title={item.title.join(' ')} id={item.id} weight={item.weight} position={item.location} src={item.image} />
                       ))}
                   </div>
               </div>

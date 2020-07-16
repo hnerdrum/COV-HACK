@@ -1,5 +1,5 @@
 .container {
-    margin-top: 5%;
+    margin-top: 7em;
     height: 100%;
     width: 100%;
     display: flex;
@@ -8,6 +8,7 @@
 }
 
 .bar {
+    margin: auto;
     margin-bottom: 3%;
     box-shadow: 0 3px 6px 0 #E8E8E8, 0 6px 20px 0 #E8E8E8;
 }

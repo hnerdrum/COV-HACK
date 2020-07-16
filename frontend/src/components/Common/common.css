@@ -3,3 +3,9 @@
     border: 2px solid white !important;
     border-radius: 5px !important;
 }
+
+#logout_dark {
+    background: none;
+    border: 2px solid black !important;
+    border-radius: 5px !important;
+}

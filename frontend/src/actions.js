@@ -55,7 +55,11 @@ export const fetchDocuments = (query) => {
             .then((querySnapshot) => {
                 if(!querySnapshot.empty) {
                     let documents = [];
-                    querySnapshot.forEach(doc => {documents.push(doc.data())});
+                    querySnapshot.forEach(doc => {
+                        var data = doc.data()
+                        var id = doc.id
+                        documents.push({...data, id})
+                    });
                     dispatch(receiveDocuments(query, documents));
                 }
             })
