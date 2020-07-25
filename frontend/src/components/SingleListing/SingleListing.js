@@ -20,7 +20,6 @@ const SingleListing = ({db}) => {
             .doc(listingId)
             .get()
             .then((snap) => {
-                console.log(snap);
                 setListing(() => snap.data())
                 setLoaded(true)
             })
@@ -49,11 +48,18 @@ const SingleListing = ({db}) => {
                         <div className={styles.single_info}>
                             <h5 className={styles.title}>{listing.title.join(" ")}</h5>
                             <div className={styles.single_info_inner}>
-                                <b><span className="fa fa-building-o"></span>  SIMS recycling ltd</b>
+                                <b><span className="fa fa-building-o"></span>  Demolition company A</b>
                                 <b><span className="fa fa-clock-o"></span>  Normally replies in 15 minutes</b>
                                 <b><span className="fa fa-commenting-o"></span>  98% reply frequency</b>
                                 <b><span className="fa fa-map-marker"></span>  {listing.location} away</b>
                                 <b><span className="fa fa-check"></span>  Delivery available</b>
+                                <b>
+                                    <span className="fa fa-star"></span>
+                                    <span className="fa fa-star"></span>
+                                    <span className="fa fa-star"></span>
+                                    <span className="fa fa-star"></span>
+                                    <span className="fa fa-star-half-o"></span>
+                                </b>
                             </div>
                             <div className={styles.buttonwrapper}>
                                 <button className={"btn btn-success " + styles.button}>Send offer</button>
