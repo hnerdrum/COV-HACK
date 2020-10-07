@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 90%;
+    margin: 20% auto;
+}
+
+.title {
+    font-weight: bold;
+    margin-bottom: 5%;
+}
+
+.innerContainer {
+    display: flex;
+    flex-direction: row;
+}

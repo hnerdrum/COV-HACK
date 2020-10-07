@@ -16,6 +16,7 @@
     "react-bootstrap-dropdown-menu": "latest",
     "react-dom": "^16.13.1",
     "react-geocode": "latest",
+    "react-player": "^2.6.2",
     "react-plotly.js": "^2.4.0",
     "react-redux": "latest",
     "react-router-dom": "latest",
