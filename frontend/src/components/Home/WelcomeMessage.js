@@ -17,7 +17,7 @@ const WelcomeMessage = ({ token, history }) => {
   };
 
   const search = () => {
-      dispatch(fetchDocuments(query));
+      dispatch(fetchDocuments(query.toLowerCase()));
       history.push("/search");
   };
 
