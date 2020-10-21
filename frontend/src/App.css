@@ -260,3 +260,17 @@
 .company_name {
   color: white;
 }
+
+.about-wrapper {
+  margin-top: 5rem;
+}
+
+.about-text-text {
+  margin-top: 2rem;
+  font-size: large;
+  font-weight: 300;
+}
+
+.about-sub-title {
+  color: rgb(121, 56, 128);
+}

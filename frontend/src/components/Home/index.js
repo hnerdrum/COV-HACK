@@ -4,6 +4,7 @@ import WelcomeMessage from './WelcomeMessage';
 import BrowseCategories from './BrowseCategories';
 import Statistics from '../Common/Statistics';
 import {useHistory} from "react-router-dom";
+import About from "./About";
 
 const Home = ({ token, db }) => {
 
@@ -13,6 +14,7 @@ const Home = ({ token, db }) => {
         <div className="home-wrapper">
             <WelcomeMessage token={token} history={history}/>
             <BrowseCategories />
+            <About/>
          </div>
     );
 };
