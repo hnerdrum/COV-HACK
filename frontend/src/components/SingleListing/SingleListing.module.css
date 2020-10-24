@@ -14,7 +14,7 @@
     padding: .3em .2em;
     max-height: 2em;
     text-align: center;
-    background-color: rgb(113,62,125);
+    background-color: var(--primary-color);
     color: white;
 
 }
@@ -63,4 +63,9 @@
 .rowwrapper {
     width: 75%;
     margin: auto !important;
+}
+
+.button {
+    background-color: var(--button-primary) !important;
+    border-color: var(--button-primary) !important;
 }

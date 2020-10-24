@@ -8,7 +8,6 @@ import Registration from "./components/Registration";
 import SingleListing from "./components/SingleListing/SingleListing";
 import Transaction from "./components/Transaction";
 import SearchResults from "./components/SearchResults";
-import {useHistory} from "react-router-dom";
 
 const App = ({ auth, db }) => {
 

@@ -2,10 +2,6 @@ import React from 'react';
 
 const BrowseCategories = () => {
 
-  const clickRegister = () => {
-    window.location.assign( "/register");
-  };
-
   const allCategories = ['Ferrous', 'Non-ferrous', 'Aluminium', 'Steel', 'Example',
     'Ferrous', 'Non-ferrous', 'Aluminium', 'Steel', 'Example',
     'Ferrous', 'Non-ferrous', 'Aluminium', 'Steel', 'Example',

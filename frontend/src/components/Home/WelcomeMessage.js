@@ -1,20 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {fetchDocuments} from "../../actions";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 
-const WelcomeMessage = ({ token, history }) => {
+const WelcomeMessage = ({ history }) => {
 
   const [query, setQuery] = useState("");
 
-    const dispatch = useDispatch();
-
-    /*useEffect(() => {
-        dispatch(fetchDocuments(query))
-    }, []);*/
-
-  const clickRegister = () => {
-    window.location.assign( "/register");
-  };
+  const dispatch = useDispatch();
 
   const search = () => {
       dispatch(fetchDocuments(query));
@@ -29,23 +21,6 @@ const WelcomeMessage = ({ token, history }) => {
     if(event.key === 'Enter') {
         search();
     }
-  };
-
-  const renderWelcome = (token) => {
-      if(!token) {
-          return (
-              <div className="registration-wrapper">
-                  <h4 className="registration-text alignCenter white">Start connecting today</h4>
-                  <button type="button" className="btn btn-lg registration-button" onClick={clickRegister}>REGISTER</button>
-              </div>
-          )
-      }
-      else {
-          return (
-          <div className="registration-wrapper">
-              <h4 className="registration-text alignCenter white">Welcome!</h4>
-          </div>)
-      }
   };
 
   return (
