@@ -11,7 +11,6 @@ const Home = ({ token, db }) => {
     return (
         <div className="home-wrapper">
             <WelcomeMessage token={token} history={history}/>
-            <BrowseCategories />
             <AboutSection />
          </div>
     );
