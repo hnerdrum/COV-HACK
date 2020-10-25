@@ -3,6 +3,7 @@ import steel from "../SearchResults/SearchItem/steel.jpeg"
 import Loader from 'react-loader-spinner'
 import SearchBar from "../SearchResults/SearchBar";
 import styles from "./SingleListing.module.css"
+import {COLOR_PRIMARY} from "../../colors";
 
 const SingleListing = ({db}) => {
     const [listing, setListing] = useState(null);
@@ -73,7 +74,7 @@ const SingleListing = ({db}) => {
                 <div className={styles.loader}>
                     <Loader
                         type="ThreeDots"
-                        color="#556B2F"
+                        color={COLOR_PRIMARY}
                         height={100}
                         width={100}
                         timeout={3000} //3 secs

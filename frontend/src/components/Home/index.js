@@ -1,9 +1,7 @@
 import React from 'react';
-import MapComponent from './MapComponent';
 import WelcomeMessage from './WelcomeMessage';
 import BrowseCategories from './BrowseCategories';
-import AboutSection from "../../AboutSection";
-import Statistics from '../Common/Statistics';
+import AboutSection from "../AboutSection";
 import {useHistory} from "react-router-dom";
 
 const Home = ({ token, db }) => {
