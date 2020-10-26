@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import {fetchDocuments} from "../../actions";
 import {useDispatch} from "react-redux";
+import { Button } from 'react-bootstrap';
+import NewListingModal from './NewListingModal';
 
-const WelcomeMessage = ({ history }) => {
+const WelcomeMessage = ({ history, db }) => {
 
   const [query, setQuery] = useState("");
 
@@ -46,6 +48,7 @@ const WelcomeMessage = ({ history }) => {
                 onKeyDown={handleKeyDown} />
             <span className="search-icon fa fa-search fa-lg" onClick={search}/>
         </div>
+        <NewListingModal db={db}/>
       </div>
   )
 };

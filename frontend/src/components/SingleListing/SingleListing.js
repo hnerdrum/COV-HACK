@@ -4,8 +4,11 @@ import Loader from 'react-loader-spinner'
 import SearchBar from "../SearchResults/SearchBar";
 import styles from "./SingleListing.module.css"
 import {COLOR_PRIMARY} from "../../colors";
+import {useHistory} from "react-router-dom";
 
 const SingleListing = ({db}) => {
+    const history = useHistory();
+
     const [listing, setListing] = useState(null);
     const [dataIsLoaded, setLoaded] = useState(false);
 
@@ -26,6 +29,10 @@ const SingleListing = ({db}) => {
             })
         }
     };
+
+    const sendToThanks = () => {
+        history.push('/thanks')
+    }
 
     /*
         location: 17 miles
@@ -63,7 +70,24 @@ const SingleListing = ({db}) => {
                                 </b>
                             </div>
                             <div className={styles.buttonwrapper}>
-                                <button className={"btn btn-success " + styles.button}>Send offer</button>
+                                <button className={"btn btn-success " + styles.button} onClick={() => sendToThanks()}>Send offer</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="product-details-wrapper">
+                        <h4>Product details</h4>
+                        <div className="product-details">
+                            <div className="info-item">
+                                Scrap metal for sale
+                            </div>
+                            <div className="info-item">
+                                {listing.title.join(" ").toUpperCase()}
+                            </div>
+                            <div className="info-item">
+                                {listing.description}
+                            </div>
+                            <div className="info-item">
+                                {listing.address}
                             </div>
                         </div>
                     </div>

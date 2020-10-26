@@ -8,6 +8,7 @@ import Registration from "./components/Registration";
 import SingleListing from "./components/SingleListing/SingleListing";
 import Transaction from "./components/Transaction";
 import SearchResults from "./components/SearchResults";
+import Thanks from "./components/Common/Thanks";
 
 const App = ({ auth, db }) => {
 
@@ -59,6 +60,10 @@ const App = ({ auth, db }) => {
             <Route
               path="/listing"
               render={(props) => <SingleListing {...props} db={db} />}
+            />
+            <Route
+              path="/thanks"
+              render={() => <Thanks />}
             />
           </Switch>
           <Footer />
