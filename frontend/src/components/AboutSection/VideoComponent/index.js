@@ -1,5 +1,4 @@
 import React from 'react';
-import YouTubePlayer from "react-player/lib/players/YouTube";
 import styles from './VideoComponent.module.css';
 
 const VideoComponent = ({ text, videoUrl }) => {

@@ -86,7 +86,7 @@
 }
 
 .navfootColor {
-  background-image: url('footer-bg.png');
+  background-color: var(--quaternary-color);
 }
 
 #login-button {
@@ -235,7 +235,7 @@
 }
 
 .section-top-border {
-  border-top: .6rem solid rgb(121, 56, 128);
+  border-top: .6rem solid var(--primary-color);
 }
 
 .marginTop15 {
@@ -254,7 +254,7 @@
   height: 2.5rem;
   display: inline-block;
   border-radius: .8rem;
-  border: 1px solid rgb(121, 56, 128);
+  border: 1px solid var(--primary-color);
 }
 
 .company_name {

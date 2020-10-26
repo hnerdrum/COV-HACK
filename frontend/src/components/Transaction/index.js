@@ -21,14 +21,10 @@ const Transaction = ({ db }) => {
   };
 
   useEffect(() => {
-     getHospital(email)
-  }, []);
+      dispatch(fetchHospital(email));
+  }, [dispatch]);
 
   const email = "brad@pitt.com";
-
-  const getHospital = email =>{
-      dispatch(fetchHospital(email));
-  };
 
   return (
       <div className={styles.container}>
