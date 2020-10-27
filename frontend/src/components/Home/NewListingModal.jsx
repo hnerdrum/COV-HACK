@@ -76,7 +76,7 @@ const NewListingModal = ({db}) => {
                       </form>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-success" onClick={() => addListingToFirebase()}>Create</button>
+                        <button type="button" className="btn new-listing" onClick={() => addListingToFirebase()}>Create</button>
                         <button type="button" className="btn btn-secondary" onClick={() => setShowModal()}>Cancel</button>
                     </div>
                   </div>
