@@ -260,3 +260,49 @@
 .company_name {
   color: white;
 }
+
+.new-listing-btn {
+  margin: auto;
+  margin-top: 0;
+}
+
+.new-listing-modal {
+  width: 80%;
+  height: 80%;
+  margin: 2rem auto auto auto;
+}
+
+.product-details-wrapper {
+  margin: 2rem auto auto auto;
+  width: 75%;
+}
+
+.info-item {
+  margin: 1em auto;
+}
+
+.thanks-wrapper {
+  width: 100%;
+  height: 900px;
+  margin: 10% auto auto auto;
+  text-align: center;
+}
+
+.thanks-headline {
+  margin: 1em auto auto auto;
+  font-size: 3em;
+}
+
+.thanks-subheader {
+  font-size: 1.5em;
+  margin: 1rem auto auto auto;
+}
+
+.thanks-button {
+  margin: 1.5rem auto auto auto;
+}
+
+.new-listing {
+  background-color: var(--button-primary) !important;
+  border-color: var(--button-primary) !important;
+}
