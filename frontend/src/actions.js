@@ -57,6 +57,7 @@ export const fetchDocuments = (query) => {
                     let documents = [];
                     querySnapshot.forEach(doc => {
                         var data = doc.data()
+                        console.log("DOCDATA", data)
                         var id = doc.id
                         documents.push({...data, id})
                     });
