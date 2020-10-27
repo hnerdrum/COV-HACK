@@ -301,3 +301,8 @@
 .thanks-button {
   margin: 1.5rem auto auto auto;
 }
+
+.new-listing {
+  background-color: var(--button-primary) !important;
+  border-color: var(--button-primary) !important;
+}

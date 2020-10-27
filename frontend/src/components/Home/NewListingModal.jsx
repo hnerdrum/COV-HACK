@@ -31,7 +31,12 @@ const NewListingModal = ({db}) => {
 
     return (
         <div className="new-listing-btn">
-            <Button type="button" className="btn btn-lg btn-success" onClick={() => buttonClicked()}>New listing</Button>
+            <Button type="button"
+                    className="btn btn-lg new-listing"
+                    onClick={() => buttonClicked()}
+            >
+                New listing
+            </Button>
             { showModal ? (
                 <div className="modal" id="exampleModal" tabIndex="-1" role="dialog">
                 <div className="new-listing-modal" role="document">
